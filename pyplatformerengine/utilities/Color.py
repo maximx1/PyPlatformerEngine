@@ -1,4 +1,4 @@
-class color:
+class Color:
     BLACK = (0,   0,   0)
     PINK = (255, 20, 147)
     WHITE = (255, 255, 255)

@@ -1,10 +1,10 @@
 import pygame
 
-from pyplatformerengine.utilities.color import color
+from pyplatformerengine.utilities.Color import Color
 
-class game:
+class Game:
     
-    colors = color()
+    colors = Color()
     
     def __init__(self):
         self.screen = pygame.display.set_mode((800,600))

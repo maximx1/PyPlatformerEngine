@@ -1,4 +1,4 @@
-class gravity:
+class Gravity:
     G = 6.67384e-11
     
     def apply_gravity_to_floor(self, accel, gravitable):
@@ -11,4 +11,4 @@ class gravity:
     def calculate_distance(self, distanceScale, rect1, rect2):
         distance = ((((rect1.x - rect2.x) ** 2) + ((rect1.y - rect2.y) ** 2)) ** .5)
         # need m/pixel passed in. 
-        return distance * 
+        return distance * distanceScale
