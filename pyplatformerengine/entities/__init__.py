@@ -1,1 +1,1 @@
-__all__=["Entity", "StaticEntity", "DynamicEntity", "Character", "NonPlayableCharacter", "PlayableCharacter"]
+__all__=["Entity", "Character", "NonPlayableCharacter", "PlayableCharacter", "DecorativeEntity", "ZoneEntity", "PropEntity"]

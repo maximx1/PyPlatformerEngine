@@ -16,3 +16,9 @@ class PlayableCharacter(Character.Character):
     """
     def update(self):
         Character.Character.update(self)
+        
+    """
+        Calls the updates to the graphics
+    """
+    def draw(self):
+        Character.Character.draw(self)

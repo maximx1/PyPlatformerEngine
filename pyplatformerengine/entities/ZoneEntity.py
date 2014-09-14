@@ -1,9 +1,9 @@
 from pyplatformerengine.entities import Entity
 
 """
-    The base entity for objects that don't move relative to their coordinates in the map.
+    The base entity for objects that aren't visible but can be interacted with by the player.
 """
-class StaticEntity(Entity.Entity):
+class ZoneEntity(Entity.Entity):
     """
         Initializes the Object.
     """
