@@ -25,4 +25,4 @@ class Game:
         pygame.quit()
         
         
-game().start_game()
+Game().start_game()
