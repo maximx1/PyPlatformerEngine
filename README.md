@@ -2,7 +2,7 @@ PyPlatformerEngine
 ==================
 
 #### Description
-Python-based Platformer Base Engine and utilities for developing simple 2d platformers. Using as many professional patterns as possible.
+Python-based Platformer Base Engine and utilities for developing simple 2d platformers.
 
 #### About
 * Build - [![Build Status](http://walrath.technology:8080/jenkins/buildStatus/icon?job=PyPlatformerEngine)](http://walrath.technology:8080/jenkins/view/Open%20Source/job/PyPlatformerEngine/)
