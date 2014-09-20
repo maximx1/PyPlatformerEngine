@@ -1,18 +1,13 @@
 import pygame
+from pyplatformerengine.components import ActionComponent
 
-class ActionComponent:
+class DefaultPlatformerActionComponent(ActionComponent.ActionComponent):
     endGame = False
-    
-    """
-        Initializes the object with it's parent entity.
-    """
-    def __init__(self, entity, keyBindingMappings):
-        self.entity = entity
         
     """
         Runs the update to the logic component.
     """
-    def update(self):
+    def determineAction(self, entity):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.endGame = True
@@ -20,13 +15,15 @@ class ActionComponent:
                 if event.key == pygame.K_ESCAPE:
                     self.endGame = True
                 elif event.key == pygame.K_LEFT:
-                    print("Go Left")
+                    entity.deltaX = -1
                 elif event.key == pygame.K_RIGHT:
-                    print("Go Right")
+                    entity.deltaX = 1
                 elif event.key == pygame.K_SPACE:
-                    print("Jump")
+                    entity.isJumping = True
             elif event.type == pygame.KEYUP:
                 if event.key == pygame.K_LEFT:
-                    print("Stop Going Left")
+                    entity.deltaX = 0
                 elif event.key == pygame.K_RIGHT:
-                    print("Stop Going Right")
+                    entity.deltaX = 0
+                elif event.key == pygame.K_SPACE:
+                    entity.isJumping = False
