@@ -1,0 +1,2 @@
+#class CharacterFactory:
+#    def 

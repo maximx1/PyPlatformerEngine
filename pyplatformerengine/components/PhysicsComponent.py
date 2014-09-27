@@ -2,8 +2,6 @@ from pyplatformerengine.physics.Gravity import Gravity
 
 class PhysicsComponent:
     
-    terminalVelocity = 0
-    
     """
         Initializes the object.
     """

@@ -1,1 +1,1 @@
-__all__ = ["ActionComponent", "DefaultPlatformerActionComponent", "AnimationComponent", "PhysicsComponent", "ActionComponent"]
+__all__ = ["DefaultPlatformerActionComponent", "AnimationComponent", "PhysicsComponent"]

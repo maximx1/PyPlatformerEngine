@@ -1,7 +1,6 @@
 import pygame
-from pyplatformerengine.components import ActionComponent
 
-class DefaultPlatformerActionComponent(ActionComponent.ActionComponent):
+class DefaultPlatformerActionComponent():
     endGame = False
         
     """

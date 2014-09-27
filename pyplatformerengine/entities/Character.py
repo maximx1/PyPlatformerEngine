@@ -1,4 +1,5 @@
 from pyplatformerengine.entities import Entity
+from pyplatformerengine.utilities.Color import Color
 import pygame
 
 """
@@ -19,7 +20,11 @@ class Character(Entity.Entity):
         self.actionComponent = actionComponent
         self.animationComponent = animationComponent
         self.physicsComponent = physicsComponent
-        self.rect = pygame.Rect(10, 0, 100, 100)
+        self.image = pygame.Surface([15, 15])
+        self.image.fill(Color.WHITE)
+        self.rect = self.image.get_rect()
+        self.rect.x = 50
+        self.rect.y = 50
     
     """
         Updates the Entity's logic

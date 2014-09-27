@@ -14,4 +14,4 @@ class Entity(pygame.sprite.Sprite):
         Calls the common core update features.
     """ 
     def update(self):
-        print("TODO")
+        1
