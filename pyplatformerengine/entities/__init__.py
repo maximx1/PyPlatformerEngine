@@ -1,1 +1,1 @@
-__all__=["Entity", "Character", "DecorativeEntity", "ZoneEntity", "PropEntity"]
+__all__=["Entity", "Character", "DecorativeEntity", "ZoneEntity", "PropEntity", "CharacterFactory"]

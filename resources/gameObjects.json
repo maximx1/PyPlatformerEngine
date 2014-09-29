@@ -1,0 +1,18 @@
+{
+    "playableCharacter": {
+        "action_comp_module": "",
+        "action_comp_class_name": "",
+        "physics_comp_module": "",
+        "physics_comp_class_name": "",
+        "animation_comp_module": "",
+        "animation_comp_class_name": "",
+        "start_position_x": "",
+        "start_position_y": "",
+        "spritesheet_img": "",
+        "spritesheet_x_qty": "",
+        "spritesheet_y_qty": "",
+        "spritesheet_x": "",
+        "spritesheet_y": "",
+        "spritesheet_gap": ""
+    }
+}
