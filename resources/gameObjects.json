@@ -1,18 +1,27 @@
 {
-    "playableCharacter": {
-        "action_comp_module": "",
-        "action_comp_class_name": "",
-        "physics_comp_module": "",
-        "physics_comp_class_name": "",
-        "animation_comp_module": "",
-        "animation_comp_class_name": "",
-        "start_position_x": "",
-        "start_position_y": "",
-        "spritesheet_img": "",
-        "spritesheet_x_qty": "",
-        "spritesheet_y_qty": "",
-        "spritesheet_x": "",
-        "spritesheet_y": "",
-        "spritesheet_gap": ""
-    }
+	"scriptVersion": "v1",
+	"gameObjects" : [
+    	{
+    		"_id": "1",
+    		"name": "playableCharacter",
+    		"description": "The main character of the game.",
+	        "actionCompMod": "pyplatformerengine.components.DefaultPlatformerActionComponent",
+	        "actionCompClass": "DefaultPlatformerActionComponent",
+	        "physicsCompMod": "pyplatformerengine.components.PhysicsComponent",
+	        "physicsCompClass": "PhysicsComponent",
+	        "animationCompMod": "pyplatformerengine.components.AnimationComponent",
+	        "animationCompClass": "AnimationComponent",
+	        "startPositionX": 50,
+	        "startPositionY": 50,
+	        "spriteImgType": "PYGAME_SURFACE",
+	        "spritesheetFill": "WHITE",
+	        "spritesheetImg": "",
+	        "spritesheetXQty": "",
+	        "spritesheetYQty": "",
+	        "spritesheetX": 15,
+	        "spritesheetY": 15,
+	        "spritesheetGap": "",
+	        "terminalVelocity": 1
+	    }
+	]
 }

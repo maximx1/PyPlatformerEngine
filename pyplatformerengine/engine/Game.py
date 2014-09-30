@@ -1,8 +1,7 @@
 import pygame
 
 from pyplatformerengine.utilities import Color
-from pyplatformerengine.components import *
-from pyplatformerengine.entities import *
+from pyplatformerengine.entities.CharacterFactory import CharacterFactory
 
 class Game:
     
@@ -15,17 +14,23 @@ class Game:
     def start_game(self):
         done = False
         pygame.init()
-        actionComponent = DefaultPlatformerActionComponent.DefaultPlatformerActionComponent()
-        animationComponent = AnimationComponent.AnimationComponent()
-        physicsComponent = PhysicsComponent.PhysicsComponent(1)
+        
         allSpriteList = pygame.sprite.Group()
-        character = Character.Character(actionComponent, animationComponent, physicsComponent)
-        allSpriteList.add(character)
+        characterFactory = CharacterFactory("../../resources/gameObjects.json")
+        allEntities = characterFactory.buildSpriteObjects()
+        
+        actionComponent = None
+        for entity in allEntities:
+            allSpriteList.add(entity)
+            if entity._id == "1":
+                actionComponent = entity.actionComponent
+        
         while not done:
             self.screen.fill(self.colors.BLACK)
             
-            character.update()
-            character.draw()
+            for entity in allEntities:
+                entity.update()
+                entity.draw()
             
             allSpriteList.draw(self.screen)
             pygame.display.flip()

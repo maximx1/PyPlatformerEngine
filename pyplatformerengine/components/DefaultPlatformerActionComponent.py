@@ -1,6 +1,6 @@
 import pygame
 
-class DefaultPlatformerActionComponent():
+class DefaultPlatformerActionComponent:
     endGame = False
         
     """
