@@ -12,18 +12,25 @@ class BasicCollisionDetection:
         self.entities = []
         
     """
-        Detects any collisions in the object.
+        Detects any collisions with the object in the x direction.
     """
     def detectXCollisions(self, controllingEntity):
-        block_hit_list = pygame.sprite.spritecollide(controllingEntity, self.entities[1:], False)
+        entityListCopy = self.entities[:]
+        entityListCopy.remove(controllingEntity)
+        block_hit_list = pygame.sprite.spritecollide(controllingEntity, entityListCopy, False)
         for block in block_hit_list:
             if controllingEntity.deltaX > 0:
                 controllingEntity.rect.right = block.rect.left
             else:
                 controllingEntity.rect.left = block.rect.right
     
+    """
+        Detects any collisions with the object in the y direction.
+    """
     def detectYCollisions(self, controllingEntity):
-        block_hit_list = pygame.sprite.spritecollide(controllingEntity, self.entities[1:], False)
+        entityListCopy = self.entities[:]
+        entityListCopy.remove(controllingEntity)
+        block_hit_list = pygame.sprite.spritecollide(controllingEntity, entityListCopy, False)
         for block in block_hit_list:
             if controllingEntity.deltaY > 0:
                 controllingEntity.rect.bottom = block.rect.top
