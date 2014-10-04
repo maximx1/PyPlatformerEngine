@@ -1,5 +1,6 @@
 from pyplatformerengine.entities.Character import Character
 from pyplatformerengine.utilities.Color import Color
+from pyplatformerengine.physics.BasicCollisionDetection import BasicCollisionDetection
 import pygame
 import json
 
@@ -15,8 +16,15 @@ class CharacterFactory:
     def buildSpriteObjects(self):
         objectData = self.parseFile()
         gameEntities = []
+        collisionEntities = []
         for obj in objectData["gameObjects"]:
-            gameEntities.append(self.createObject(obj))
+            newGameEntity = self.createObject(obj)
+            gameEntities.append(newGameEntity)
+            if newGameEntity.collisionEnabled:
+                collisionEntities.append(newGameEntity)
+        for entity in gameEntities:
+            if entity.collisionEnabled:
+                entity.physicsComponent.collisionDetectionComponent.registerEntities(collisionEntities)
         return gameEntities
 
     def parseFile(self):
@@ -29,12 +37,15 @@ class CharacterFactory:
         image = self.createImage(obj)
         startX = int(obj["startPositionX"])
         startY = int(obj["startPositionY"])
+        collisionDetectionComponent = BasicCollisionDetection()
         actionComponent = self.importClass(obj["actionCompMod"], obj["actionCompClass"])()
         animationComponent = self.importClass(obj["animationCompMod"], obj["animationCompClass"])()
-        physicsComponent = self.importClass(obj["physicsCompMod"], obj["physicsCompClass"])(obj["terminalVelocity"])
+        physicsComponent = self.importClass(obj["physicsCompMod"], obj["physicsCompClass"])(obj["terminalVelocity"], collisionDetectionComponent)
         entity = Character(actionComponent, animationComponent, physicsComponent, image, startX, startY)
         entity._id = obj["_id"]
         entity.name = obj["name"]
+        entity.collisionEnabled = False if obj["collisionEnabled"] == 0 else True
+        # TODO: add proximity
         return entity
         
     def createImage(self, obj):

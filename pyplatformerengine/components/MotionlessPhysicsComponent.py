@@ -3,7 +3,7 @@ from pyplatformerengine.physics.Gravity import Gravity
 """
     A basic physics component for moving a character around.
 """
-class PhysicsComponent:
+class MotionlessPhysicsComponent:
     
     """
         Initializes the object.
@@ -16,23 +16,11 @@ class PhysicsComponent:
         Runs the update to the logic component.
     """
     def update(self, entity):
-        self.applyDownGravity(entity)
         self.updateLocation(entity)
-        
-    """
-        Applies gravity on an entity for 2d platformer world.
-    """
-    def applyDownGravity(self, entity):
-        if entity.deltaY < self.terminalVelocity:
-            entity.deltaY += 1
-        elif entity.deltaY > self.terminalVelocity:
-            entity.deltaY = self.terminalVelocity
     
     """
         Updates the logic location of the entity.
     """
     def updateLocation(self, entity):
         entity.rect.x += entity.deltaX
-        self.collisionDetectionComponent.detectXCollisions(entity)
         entity.rect.y += entity.deltaY
-        self.collisionDetectionComponent.detectYCollisions(entity)
