@@ -22,7 +22,7 @@ class Game:
         actionComponent = None
         for entity in allEntities:
             allSpriteList.add(entity)
-            if entity._id == "1":
+            if entity._id == characterFactory.controllingEntityId:
                 actionComponent = entity.actionComponent
         
         while not done:

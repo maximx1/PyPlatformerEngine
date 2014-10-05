@@ -23,7 +23,8 @@
 	        "spritesheetGap": "",
 	        "terminalVelocity": 3,
 	        "collisionEnabled": 1,
-	        "proximity": -1
+	        "proximity": -1,
+	        "controllingEntity": 1
 	    },
 	    {
     		"_id": "2",
