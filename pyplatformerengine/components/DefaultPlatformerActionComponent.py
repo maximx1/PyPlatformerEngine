@@ -8,6 +8,7 @@ class DefaultPlatformerActionComponent:
     """
     def determineAction(self, entity):
         for event in pygame.event.get():
+            entity.deltaX = entity.maximumLeftRightVelocity
             if event.type == pygame.QUIT:
                 self.endGame = True
             elif event.type == pygame.KEYDOWN:
