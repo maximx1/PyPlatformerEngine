@@ -69,6 +69,7 @@ class CharacterFactory:
         entity._id = obj["_id"]
         entity.name = obj["name"]
         entity.collisionEnabled = False if obj["collisionEnabled"] == 0 else True
+        entity.maximumLeftRightVelocity = obj.get("leftRightMaxVelocity", 1)
         # TODO: add proximity
         return entity
         

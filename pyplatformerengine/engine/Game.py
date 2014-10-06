@@ -3,14 +3,23 @@ import pygame
 from pyplatformerengine.utilities import Color
 from pyplatformerengine.entities.CharacterFactory import CharacterFactory
 
+"""
+    Main game class that handles the loop.
+"""
 class Game:
     
     colors = Color.Color()
     
+    """
+        Initializes the game setup.
+    """
     def __init__(self):
         self.screen = pygame.display.set_mode((800,600))
         self.clock = pygame.time.Clock()
         
+    """
+        Begins the game.
+    """
     def start_game(self):
         done = False
         pygame.init()

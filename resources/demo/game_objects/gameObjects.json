@@ -24,6 +24,7 @@
 	        "spritesheetY": 15,
 	        "spritesheetGap": "",
 	        "terminalVelocity": 8,
+	        "leftRightMaxVelocity": 3,
 	        "collisionEnabled": 1,
 	        "proximity": -1,
 	        "controllingEntity": 1
@@ -51,6 +52,7 @@
 	        "spritesheetY": 15,
 	        "spritesheetGap": "",
 	        "terminalVelocity": 1,
+	        "leftRightMaxVelocity": 3,
 	        "collisionEnabled": 1,
 	        "proximity": -1
 	    },
@@ -77,6 +79,7 @@
 	        "spritesheetY": 15,
 	        "spritesheetGap": "",
 	        "terminalVelocity": 1,
+	        "leftRightMaxVelocity": 3,
 	        "collisionEnabled": 1,
 	        "proximity": -1
 	    },
@@ -103,6 +106,7 @@
 	        "spritesheetY": 15,
 	        "spritesheetGap": "",
 	        "terminalVelocity": 1,
+	        "leftRightMaxVelocity": 3,
 	        "collisionEnabled": 1,
 	        "proximity": -1
 	    }

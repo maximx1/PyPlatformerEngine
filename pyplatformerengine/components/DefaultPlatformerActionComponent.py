@@ -14,9 +14,9 @@ class DefaultPlatformerActionComponent:
                 if event.key == pygame.K_ESCAPE:
                     self.endGame = True
                 elif event.key == pygame.K_LEFT:
-                    entity.deltaX = -1
+                    entity.deltaX = -1 * entity.maximumLeftRightVelocity
                 elif event.key == pygame.K_RIGHT:
-                    entity.deltaX = 1
+                    entity.deltaX = entity.maximumLeftRightVelocity
                 elif event.key == pygame.K_SPACE:
                     entity.isJumping = True
             elif event.type == pygame.KEYUP:
