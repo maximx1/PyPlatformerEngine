@@ -1,1 +1,1 @@
-__all__ = ["Gravity"]
+__all__ = ["Gravity", "BasicCollisionDetection"]

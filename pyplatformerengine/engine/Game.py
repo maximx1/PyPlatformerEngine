@@ -3,26 +3,35 @@ import pygame
 from pyplatformerengine.utilities import Color
 from pyplatformerengine.entities.CharacterFactory import CharacterFactory
 
+"""
+    Main game class that handles the loop.
+"""
 class Game:
     
     colors = Color.Color()
     
+    """
+        Initializes the game setup.
+    """
     def __init__(self):
         self.screen = pygame.display.set_mode((800,600))
         self.clock = pygame.time.Clock()
         
+    """
+        Begins the game.
+    """
     def start_game(self):
         done = False
         pygame.init()
         
         allSpriteList = pygame.sprite.Group()
-        characterFactory = CharacterFactory("../../resources/gameObjects.json")
+        characterFactory = CharacterFactory("../../resources/demo/game_objects/gameObjects.json")
         allEntities = characterFactory.buildSpriteObjects()
         
         actionComponent = None
         for entity in allEntities:
             allSpriteList.add(entity)
-            if entity._id == "1":
+            if entity._id == characterFactory.controllingEntityId:
                 actionComponent = entity.actionComponent
         
         while not done:
