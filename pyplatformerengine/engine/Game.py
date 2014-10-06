@@ -16,7 +16,7 @@ class Game:
         pygame.init()
         
         allSpriteList = pygame.sprite.Group()
-        characterFactory = CharacterFactory("../../resources/gameObjects.json")
+        characterFactory = CharacterFactory("../../resources/demo/game_objects/gameObjects.json")
         allEntities = characterFactory.buildSpriteObjects()
         
         actionComponent = None
