@@ -4,7 +4,7 @@
 		"name": "Level 1",
 		"description": "The first level of the demo.",
 		"width": 1600,
-		"height": 600
+		"height": 715
 	},
 	"gameObjects" : [
     	{
