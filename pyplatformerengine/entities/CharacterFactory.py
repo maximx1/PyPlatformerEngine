@@ -3,6 +3,8 @@ from pyplatformerengine.utilities.Color import Color
 from pyplatformerengine.physics.BasicCollisionDetection import BasicCollisionDetection
 from pyplatformerengine.models.SpritesheetLoader import SpritesheetLoader
 from pyplatformerengine.utilities.ImageUtils import ImageUtils
+from pyplatformerengine.utilities.CameraMan import CameraMan
+from pyplatformerengine.entities.Camera import Camera
 import pygame
 import json
 
@@ -36,6 +38,15 @@ class CharacterFactory:
             if entity.collisionEnabled:
                 entity.physicsComponent.collisionDetectionComponent.registerEntities(collisionEntities)
         return gameEntities
+
+    """
+        Builds a camera with the level details.
+    """
+    def buildCamera(self, screenWidth, screenHeight):
+        objectData = self.parseFile()
+        level = objectData["level"]
+        cameraMan = CameraMan(screenWidth, screenHeight)
+        return Camera(cameraMan, level["width"], level["height"])
 
     """
         Determines the controlling entity from the config. Chooses the first entity.

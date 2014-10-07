@@ -1,5 +1,11 @@
 {
-	"scriptVersion": "v1.1",
+	"scriptVersion": "v1.2",
+	"level" : {
+		"name": "Level 1",
+		"description": "The first level of the demo.",
+		"width": 1600,
+		"height": 600
+	},
 	"gameObjects" : [
     	{
     		"_id": "1",
@@ -24,7 +30,7 @@
 	        "spritesheetY": 15,
 	        "spritesheetGap": "",
 	        "terminalVelocity": 8,
-	        "leftRightMaxVelocity": 3,
+	        "leftRightMaxVelocity": 6,
 	        "collisionEnabled": 1,
 	        "proximity": -1,
 	        "controllingEntity": 1
@@ -94,7 +100,7 @@
 	        "animationCompMod": "pyplatformerengine.components.AnimationComponent",
 	        "animationCompClass": "AnimationComponent",
 	        "startPositionX": 0,
-	        "startPositionY": 585,
+	        "startPositionY": 700,
 	        "spriteImgType": "PYGAME_SURFACE",
 	        "spritesheetFill": "WHITE",
 	        "spritesheetImg": "",
@@ -102,7 +108,7 @@
 	        "spritesheetImgSizeY": 15,
 	        "spritesheetXQty": "",
 	        "spritesheetYQty": "",
-	        "spritesheetX": 400,
+	        "spritesheetX": 1600,
 	        "spritesheetY": 15,
 	        "spritesheetGap": "",
 	        "terminalVelocity": 1,
