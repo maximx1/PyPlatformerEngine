@@ -1,10 +1,8 @@
 from pyplatformerengine.entities.Character import Character
-from pyplatformerengine.utilities.Color import Color
 from pyplatformerengine.physics.BasicCollisionDetection import BasicCollisionDetection
-from pyplatformerengine.models.SpritesheetLoader import SpritesheetLoader
-from pyplatformerengine.utilities.ImageUtils import ImageUtils
 from pyplatformerengine.utilities.CameraMan import CameraMan
 from pyplatformerengine.entities.Camera import Camera
+from pyplatformerengine.entities.SpritesheetFactory import SpritesheetFactory
 import pygame
 import json
 
@@ -69,7 +67,8 @@ class CharacterFactory:
         Creates a game object based on config.
     """
     def createObject(self, obj):
-        image = self.createImage(obj)
+        spritesheetFactory = SpritesheetFactory()
+        image = spritesheetFactory.createImage(obj)
         startX = int(obj["startPositionX"])
         startY = int(obj["startPositionY"])
         collisionDetectionComponent = BasicCollisionDetection()
@@ -83,52 +82,6 @@ class CharacterFactory:
         entity.maximumLeftRightVelocity = obj.get("leftRightMaxVelocity", 1)
         # TODO: add proximity
         return entity
-        
-    """
-        Creates a visual game object based on configuration.
-    """
-    def createImage(self, obj):
-        color = self.choosePredefinedColor(obj["spritesheetFill"])
-        
-        if obj["spriteImgType"] == "PYGAME_SURFACE":
-            return self.createGenericSurface(obj["spritesheetX"], obj["spritesheetY"], color)
-        elif obj["spriteImgType"] == "SPRITE_NO_ANIMATION":
-            return self.loadNonAnimatedSprite(obj, Color.BLACK)
-    
-    """
-        Convert color string to actual color.
-    """
-    def choosePredefinedColor(self, colorName):
-        color = Color.BLACK
-        if colorName == "WHITE":
-            color = Color.WHITE
-        elif colorName == "RED":
-            color = Color.RED
-        elif colorName == "PINK":
-            color = Color.PINK
-        elif colorName == "BLUE":
-            color = Color.BLUE
-        elif colorName == "GREEN":
-            color = Color.GREEN
-        return color
-    
-    """
-        Creates a generic pygame surface.
-    """
-    def createGenericSurface(self, width, height, color):
-        image = pygame.Surface([width, height])
-        image.fill(color)
-        return image
-    
-    """
-        Creates a non animated sprite.
-    """
-    def loadNonAnimatedSprite(self, obj, color):
-        spritesheetLoader = SpritesheetLoader()
-        spriteMap = spritesheetLoader.loadSpriteMap(obj["spritesheetImg"])
-        image = spritesheetLoader.imageAt(spriteMap, (0, 0, obj["spritesheetImgSizeX"],obj["spritesheetImgSizeY"]), color)
-        imageUtils = ImageUtils()
-        return imageUtils.scaleImage(image, obj["spritesheetX"], obj["spritesheetY"])
     
     """
         Utility to get a class by name and module.
