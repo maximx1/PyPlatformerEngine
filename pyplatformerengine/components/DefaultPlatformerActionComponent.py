@@ -8,7 +8,6 @@ class DefaultPlatformerActionComponent:
     """
     def determineAction(self, entity):
         for event in pygame.event.get():
-            entity.deltaX = 0
             if event.type == pygame.QUIT:
                 self.endGame = True
             elif event.type == pygame.KEYDOWN:
@@ -27,3 +26,5 @@ class DefaultPlatformerActionComponent:
                     entity.deltaX = 0
                 elif event.key == pygame.K_SPACE:
                     entity.isJumping = False
+                    
+    #def calculate

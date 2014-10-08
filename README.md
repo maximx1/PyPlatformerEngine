@@ -9,6 +9,12 @@ Python-based Platformer Base Engine and utilities for developing simple 2d platf
 * [Trello](https://trello.com/b/b5zVsGiI/pyplatformerengine)
 * [Off by Oneself Blog](http://blog.walrath.technology)
 
+#### Installation
+To install run 
+'''
+	python setup.py install
+'''
+
 #### Features
 * Physics
 	* Gravity

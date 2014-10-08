@@ -28,6 +28,11 @@ class PhysicsComponent:
         elif entity.deltaY > self.terminalVelocity:
             entity.deltaY = self.terminalVelocity
     
+    def applyJump(self):
+        if not self.jumping:
+            self.change_y = -1 * self.jumpVelocity
+            self.jumping = True
+    
     """
         Updates the logic location of the entity.
     """

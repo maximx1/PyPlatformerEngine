@@ -22,12 +22,12 @@ class Game:
     """
         Begins the game.
     """
-    def start_game(self):
+    def start_game(self, objectFile):
         done = False
         pygame.init()
         
         allSpriteList = pygame.sprite.Group()
-        characterFactory = CharacterFactory("../../resources/demo/game_objects/gameObjects.json")
+        characterFactory = CharacterFactory(objectFile)
         allEntities = characterFactory.buildSpriteObjects()
         camera = characterFactory.buildCamera(self.screenWidth, self.screenHeight)
         
@@ -48,7 +48,6 @@ class Game:
             
             for entity in allSpriteList:
                 self.screen.blit(entity.image, camera.apply(entity))
-            #allSpriteList.draw(self.screen)
             
             pygame.display.flip()
             self.clock.tick(60)
@@ -56,4 +55,4 @@ class Game:
         pygame.quit()
         
         
-Game().start_game()
+Game().start_game("../../resources/demo/game_objects/gameObjects.json")
