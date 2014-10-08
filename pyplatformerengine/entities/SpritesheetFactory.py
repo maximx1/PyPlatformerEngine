@@ -52,5 +52,5 @@ class SpritesheetFactory:
         spritesheetLoader = SpritesheetLoader()
         spriteMap = spritesheetLoader.loadSpriteMap(obj["spritesheetImg"])
         image = spritesheetLoader.imageAt(spriteMap, (0, 0, obj["spritesheetImgSizeX"],obj["spritesheetImgSizeY"]), color)
-        imageUtils = ImageUtils()
-        return imageUtils.scaleImage(image, obj["spritesheetX"], obj["spritesheetY"])
+        imageUtils = ImageUtils(image)
+        return imageUtils.scale(obj["spritesheetX"], obj["spritesheetY"]).getImage()
