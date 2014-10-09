@@ -1,1 +1,1 @@
-__all__ = ["Color", "ProximityManager", "ImageUtils", "CameraMan"]
+__all__ = ["Color", "ProximityManager", "ImageUtils", "CameraMan", "ConsoleManager"]
