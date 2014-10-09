@@ -1,4 +1,4 @@
-from pyplatformerengine.entities.Character import Character
+from pyplatformerengine.entities.Entity import Entity
 from pyplatformerengine.physics.BasicCollisionDetection import BasicCollisionDetection
 from pyplatformerengine.utilities.CameraMan import CameraMan
 from pyplatformerengine.entities.Camera import Camera
@@ -74,7 +74,7 @@ class CharacterFactory:
         actionComponent = self.importClass(obj["actionCompMod"], obj["actionCompClass"])()
         animationComponent = self.importClass(obj["animationCompMod"], obj["animationCompClass"])()
         physicsComponent = self.importClass(obj["physicsCompMod"], obj["physicsCompClass"])(obj["terminalVelocity"], collisionDetectionComponent)
-        entity = Character(actionComponent, animationComponent, physicsComponent, image, startX, startY)
+        entity = Entity(actionComponent, animationComponent, physicsComponent, image, startX, startY)
         entity._id = obj["_id"]
         entity.name = obj["name"]
         entity.collisionEnabled = False if obj["collisionEnabled"] == 0 else True

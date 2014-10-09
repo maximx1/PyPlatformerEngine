@@ -1,11 +1,10 @@
-from pyplatformerengine.entities import Entity
 from pyplatformerengine.utilities.Color import Color
 import pygame
 
 """
     The base entity for all character sprites.
 """
-class Character(pygame.sprite.Sprite):
+class Entity(pygame.sprite.Sprite):
     
     deltaX = 0
     deltaY = 0
@@ -31,7 +30,6 @@ class Character(pygame.sprite.Sprite):
     def update(self):
         self.actionComponent.determineAction(self)
         self.physicsComponent.update(self)
-        Entity.Entity.update(self)
         
     """
         Calls the updates to the graphics
