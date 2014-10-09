@@ -18,20 +18,20 @@ class CharacterFactory:
     """
     def __init__(self, objectFile):
         self.objectFile = objectFile
+        self.objectData = self.parseFile()
         
     """
         Loads and builds game entities.
     """
     def buildSpriteObjects(self):
-        objectData = self.parseFile()
         gameEntities = []
         collisionEntities = []
-        for obj in objectData["gameObjects"]:
+        for obj in self.objectData["gameObjects"]:
             newGameEntity = self.createObject(obj)
             gameEntities.append(newGameEntity)
             if newGameEntity.collisionEnabled:
                 collisionEntities.append(newGameEntity)
-        self.determineControllingEntity(objectData["gameObjects"])
+        self.determineControllingEntity(self.objectData["gameObjects"])
         for entity in gameEntities:
             if entity.collisionEnabled:
                 entity.physicsComponent.collisionDetectionComponent.registerEntities(collisionEntities)
@@ -41,8 +41,7 @@ class CharacterFactory:
         Builds a camera with the level details.
     """
     def buildCamera(self, screenWidth, screenHeight):
-        objectData = self.parseFile()
-        level = objectData["level"]
+        level = self.objectData["level"]
         cameraMan = CameraMan(screenWidth, screenHeight)
         return Camera(cameraMan, level["width"], level["height"])
 

@@ -1,10 +1,11 @@
 from pyplatformerengine.entities import Entity
 from pyplatformerengine.utilities.Color import Color
+import pygame
 
 """
     The base entity for all character sprites.
 """
-class Character(Entity.Entity):
+class Character(pygame.sprite.Sprite):
     
     deltaX = 0
     deltaY = 0
@@ -15,7 +16,7 @@ class Character(Entity.Entity):
         Initializes the Object.
     """
     def __init__(self, actionComponent, animationComponent, physicsComponent, img, startX, startY):
-        Entity.Entity.__init__(self)
+        pygame.sprite.Sprite.__init__(self)
         self.actionComponent = actionComponent
         self.animationComponent = animationComponent
         self.physicsComponent = physicsComponent
