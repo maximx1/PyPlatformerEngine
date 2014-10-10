@@ -1,4 +1,3 @@
-from pyplatformerengine.utilities.Color import Color
 import pygame
 
 """
