@@ -18,13 +18,9 @@ class DefaultPlatformerActionComponent:
                 elif event.key == pygame.K_RIGHT:
                     entity.deltaX = entity.maximumLeftRightVelocity
                 elif event.key == pygame.K_SPACE:
-                    entity.isJumping = True
+                    entity.initiateJump = True
             elif event.type == pygame.KEYUP:
                 if event.key == pygame.K_LEFT:
                     entity.deltaX = 0
                 elif event.key == pygame.K_RIGHT:
                     entity.deltaX = 0
-                elif event.key == pygame.K_SPACE:
-                    entity.isJumping = False
-                    
-    #def calculate

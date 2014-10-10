@@ -17,7 +17,9 @@ class PhysicsComponent:
     """
     def update(self, entity):
         self.applyDownGravity(entity)
-        self.updateLocation(entity)
+        self.applyJump(entity)
+        _, collisionOnYDetected = self.updateLocation(entity)
+        self.terminateJumping(entity, collisionOnYDetected)
         
     """
         Applies gravity on an entity for 2d platformer world.
@@ -28,16 +30,29 @@ class PhysicsComponent:
         elif entity.deltaY > self.terminalVelocity:
             entity.deltaY = self.terminalVelocity
     
-    def applyJump(self):
-        if not self.jumping:
-            self.change_y = -1 * self.jumpVelocity
-            self.jumping = True
+    """
+        Inverses gravity for a jump action.
+    """
+    def applyJump(self, entity):
+        if entity.initiateJump and entity.readyToJump:
+            entity.deltaY = -1 * entity.jumpVelocity
+            entity.initiateJump = False
+            entity.readyToJump = False
     
     """
-        Updates the logic location of the entity.
+        Tells the entity that it is no longer in flight from a jump and defaults to it's terminal velocity.
+    """
+    def terminateJumping(self, entity, verticalCollisionDetected):
+        if verticalCollisionDetected:
+            entity.readyToJump = True
+            entity.deltaY = 0
+    
+    """
+        Updates the logic location of the entity. Returns True for directional collision.
     """
     def updateLocation(self, entity):
         entity.rect.x += entity.deltaX
-        self.collisionDetectionComponent.detectXCollisions(entity)
+        collisionOnXDetected = self.collisionDetectionComponent.detectXCollisions(entity)
         entity.rect.y += entity.deltaY
-        self.collisionDetectionComponent.detectYCollisions(entity)
+        collisionOnYDetected = self.collisionDetectionComponent.detectYCollisions(entity)
+        return collisionOnXDetected, collisionOnYDetected

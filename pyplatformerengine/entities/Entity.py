@@ -9,7 +9,8 @@ class Entity(pygame.sprite.Sprite):
     deltaX = 0
     deltaY = 0
     direction = 1
-    isJumping = False
+    initiateJump = False
+    readyToJump = False
     
     """
         Initializes the Object.
