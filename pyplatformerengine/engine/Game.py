@@ -2,6 +2,7 @@ import pygame
 
 from pyplatformerengine.utilities import Color
 from pyplatformerengine.entities.CharacterFactory import CharacterFactory
+from pyplatformerengine.utilities.ConsoleManager import ConsoleManager
 
 """
     Main game class that handles the loop.
@@ -29,10 +30,13 @@ class Game:
         allSpriteList = pygame.sprite.Group()
         characterFactory = CharacterFactory(objectFile)
         allEntities = characterFactory.buildSpriteObjects()
+        consoleManager = ConsoleManager()
+        consoleManager.addToMasterEntityList(allEntities)
+        consoleManager.setInScopeEntities(allEntities) 
         camera = characterFactory.buildCamera(self.screenWidth, self.screenHeight)
         
         actionComponent = None
-        for entity in allEntities:
+        for entity in consoleManager.getInScopeEntities():
             allSpriteList.add(entity)
             if entity._id == characterFactory.controllingEntityId:
                 actionComponent = entity.actionComponent
@@ -40,13 +44,11 @@ class Game:
         while not done:
             self.screen.fill(self.colors.BLACK)
             
-            for entity in allEntities:
+            for entity in consoleManager.getInScopeEntities():
                 entity.update()
                 if entity._id == characterFactory.controllingEntityId:
                     camera.update(entity)
                 entity.draw()
-            
-            for entity in allSpriteList:
                 self.screen.blit(entity.image, camera.apply(entity))
             
             pygame.display.flip()

@@ -1,5 +1,8 @@
 import pygame
 
+"""
+    Default controller for the platformer action component.
+"""
 class DefaultPlatformerActionComponent:
     endGame = False
         
