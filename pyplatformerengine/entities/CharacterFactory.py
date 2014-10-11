@@ -34,7 +34,7 @@ class CharacterFactory:
         self.determineControllingEntity(self.objectData["gameObjects"])
         for entity in gameEntities:
             if entity.collisionEnabled:
-                entity.physicsComponent.collisionDetectionComponent.registerEntities(collisionEntities)
+                entity.physicsComponent.collisionDetectionComponent.registerEntities(entity, collisionEntities)
         return gameEntities
 
     """

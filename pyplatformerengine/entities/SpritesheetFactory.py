@@ -1,6 +1,5 @@
 from pyplatformerengine.utilities.Color import Color
 from pyplatformerengine.models.SpritesheetLoader import SpritesheetLoader
-from pyplatformerengine.utilities.ImageUtils import ImageUtils
 
 import pygame
 
