@@ -55,7 +55,6 @@ class TimerManager:
         self.pauseTime = pygame.time.get_ticks()
         self.updateTimer(timerId)
 
-
     """
         Resumes the timer.  On resume, calculates the elapsed time and stores it (for processing later)
     """
