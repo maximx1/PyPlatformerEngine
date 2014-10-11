@@ -29,7 +29,7 @@ class TimerManager:
     """
     def updateTimer(self, timerId):
         timerSub[timerId] = {'start' : self.startTime,'elapsed' : self.elapsedTime,
-                                'pause' : self.pauseTime,'stop' : self.stopTime}
+                             'pause' : self.pauseTime,'stop' : self.stopTime}
     
     """ 
         Stop should be used when you are done.  If you want to rerun the timer, you'll need to reset it. 
