@@ -12,13 +12,16 @@ class SpritesheetFactory:
     """
         Creates a visual game object based on configuration.
     """
-    def createImage(self, obj):
+    def createImages(self, obj):
         color = self.choosePredefinedColor(obj["spritesheetFill"])
         
-        if obj["spriteImgType"] == "PYGAME_SURFACE":
-            return self.createGenericSurface(obj["spritesheetX"], obj["spritesheetY"], color)
-        elif obj["spriteImgType"] == "SPRITE_NO_ANIMATION":
-            return self.loadNonAnimatedSprite(obj, Color.BLACK)
+        spriteStages = {}
+        for img in obj["spriteSheetImages"]:
+            if img["type"] == "PYGAME_SURFACE":
+                spriteStages[img["label"]] = self.createGenericSurface(img, color)
+            elif img["type"] == "SPRITE_IMG":
+                spriteStages[img["label"]] = self.loadSpriteAnimations(img, Color.BLACK)
+        return spriteStages
         
     """
         Convert color string to actual color.
@@ -40,17 +43,17 @@ class SpritesheetFactory:
     """
         Creates a generic pygame surface.
     """
-    def createGenericSurface(self, width, height, color):
-        image = pygame.Surface([width, height])
+    def createGenericSurface(self, img, color):
+        image = pygame.Surface([img["width"], img["height"]])
         image.fill(color)
         return image
     
     """
-        Creates a non animated sprite.
+        Loads the sprites from the spritemap.
     """
-    def loadNonAnimatedSprite(self, obj, color):
+    def loadSpriteAnimations(self, img, color):
         spritesheetLoader = SpritesheetLoader()
-        spriteMap = spritesheetLoader.loadSpriteMap(obj["spritesheetImg"])
-        image = spritesheetLoader.imageAt(spriteMap, (0, 0, obj["spritesheetImgSizeX"],obj["spritesheetImgSizeY"]), color)
-        imageUtils = ImageUtils(image)
-        return imageUtils.scale(obj["spritesheetX"], obj["spritesheetY"]).getImage()
+        spriteMap = spritesheetLoader.loadSpriteMap(img["file"])
+        image = spritesheetLoader.imageAt(spriteMap, (img["x"], img["y"], img["width"], img["height"]), color)
+        return image
+            

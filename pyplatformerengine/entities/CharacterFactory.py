@@ -67,14 +67,14 @@ class CharacterFactory:
     """
     def createObject(self, obj):
         spritesheetFactory = SpritesheetFactory()
-        image = spritesheetFactory.createImage(obj)
+        spriteStages = spritesheetFactory.createImages(obj)
         startX = int(obj["startPositionX"])
         startY = int(obj["startPositionY"])
         collisionDetectionComponent = BasicCollisionDetection()
         actionComponent = self.importClass(obj["actionCompMod"], obj["actionCompClass"])()
-        animationComponent = self.importClass(obj["animationCompMod"], obj["animationCompClass"])()
+        animationComponent = self.importClass(obj["animationCompMod"], obj["animationCompClass"])(obj["animationProperties"])
         physicsComponent = self.importClass(obj["physicsCompMod"], obj["physicsCompClass"])(obj["terminalVelocity"], collisionDetectionComponent)
-        entity = Entity(actionComponent, animationComponent, physicsComponent, image, startX, startY)
+        entity = Entity(actionComponent, animationComponent, physicsComponent, spriteStages, startX, startY)
         entity._id = obj["_id"]
         entity.name = obj["name"]
         entity.collisionEnabled = False if obj["collisionEnabled"] == 0 else True
