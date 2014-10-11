@@ -44,7 +44,7 @@ class SpritesheetFactory:
         Creates a generic pygame surface.
     """
     def createGenericSurface(self, img, color):
-        image = pygame.Surface([img["width"], img["height"]])
+        image = pygame.Surface((img["width"], img["height"]))
         image.fill(color)
         return image
     
