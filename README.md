@@ -11,9 +11,18 @@ Python-based Platformer Base Engine and utilities for developing simple 2d platf
 
 #### Installation
 To install run 
-'''
+
 	python setup.py install
-'''
+
+
+#### What's new?
+* v1.2.0.0
+	* new: Spritesheet mapping utilities
+	* update: Improved action controller with jump
+	* new: Default camera utility for moving with a character
+	* update: ImageUtils now uses Decorator pattern
+	* new: Installer to install module to python 'classpath'
+	* fixes: Assorted bug fixes and refactoring of code 
 
 #### Features
 * Physics
