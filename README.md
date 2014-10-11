@@ -16,6 +16,9 @@ To install run
 
 
 #### What's new?
+* v1.2.0.1
+	* fixes known issue with the width and height of objects.
+	
 * v1.2.0.0
 	* new: Spritesheet mapping utilities
 	* update: Improved action controller with jump

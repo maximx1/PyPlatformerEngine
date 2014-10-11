@@ -27,8 +27,8 @@
 	        		"file": "../../resources/demo/sprites/Basic Ball.png",
 	        		"x": 0,
 	        		"y": 0,
-	        		"height": 100,
-	        		"width": 100
+	        		"width": 100,
+	        		"height": 100
 	        	}
 	        ],
 	        "animationProperties": {
@@ -52,8 +52,8 @@
 	        "physicsCompClass": "MotionlessPhysicsComponent",
 	        "animationCompMod": "pyplatformerengine.components.AnimationComponent",
 	        "animationCompClass": "AnimationComponent",
-	        "startPositionX": 0,
-	        "startPositionY": 85,
+	        "startPositionX": 15,
+	        "startPositionY": 75,
 	        "spritesheetFill": "WHITE",
 	        "spriteSheetImages": [
 	        	{
@@ -62,8 +62,8 @@
 	        		"file": "",
 	        		"x": 0,
 	        		"y": 0,
-	        		"height": 400,
-	        		"width": 15
+	        		"width": 400,
+	        		"height": 15
 	        	}
 	        ],
 	        "animationProperties": {
@@ -97,12 +97,12 @@
 	        		"file": "",
 	        		"x": 0,
 	        		"y": 0,
-	        		"height": 20,
-	        		"width": 15
+	        		"width": 44,
+	        		"height": 15
 	        	}
 	        ],
 	        "animationProperties": {
-	        	"width": 20,
+	        	"width": 44,
 	        	"height": 15
 	        },
 	        "terminalVelocity": 1,
@@ -121,7 +121,7 @@
 	        "physicsCompClass": "MotionlessPhysicsComponent",
 	        "animationCompMod": "pyplatformerengine.components.AnimationComponent",
 	        "animationCompClass": "AnimationComponent",
-	        "startPositionX": 0,
+	        "startPositionX": 15,
 	        "startPositionY": 700,
 	        "spritesheetFill": "WHITE",
 	        "spriteSheetImages": [
@@ -131,13 +131,81 @@
 	        		"file": "",
 	        		"x": 0,
 	        		"y": 0,
-	        		"height": 1600,
-	        		"width": 15
+	        		"width": 1570,
+	        		"height": 15
 	        	}
 	        ],
 	        "animationProperties": {
-	        	"width": 1600,
+	        	"width": 1570,
 	        	"height": 15
+	        },
+	        "terminalVelocity": 1,
+	        "jumpVelocity": 1,
+	        "leftRightMaxVelocity": 3,
+	        "collisionEnabled": 1,
+	        "proximity": -1
+	    },
+	    {
+    		"_id": "5",
+    		"name": "left wall",
+    		"description": "The left wall of the game",
+	        "actionCompMod": "pyplatformerengine.components.BlankActionComponent",
+	        "actionCompClass": "BlankActionComponent",
+	        "physicsCompMod": "pyplatformerengine.components.MotionlessPhysicsComponent",
+	        "physicsCompClass": "MotionlessPhysicsComponent",
+	        "animationCompMod": "pyplatformerengine.components.AnimationComponent",
+	        "animationCompClass": "AnimationComponent",
+	        "startPositionX": 0,
+	        "startPositionY": 0,
+	        "spritesheetFill": "WHITE",
+	        "spriteSheetImages": [
+	        	{
+	        		"type": "PYGAME_SURFACE",
+	        		"label": "standing",
+	        		"file": "",
+	        		"x": 0,
+	        		"y": 0,
+	        		"width": 15,
+	        		"height": 715
+	        	}
+	        ],
+	        "animationProperties": {
+	        	"width": 15,
+	        	"height": 715
+	        },
+	        "terminalVelocity": 1,
+	        "jumpVelocity": 1,
+	        "leftRightMaxVelocity": 3,
+	        "collisionEnabled": 1,
+	        "proximity": -1
+	    },
+	    {
+    		"_id": "6",
+    		"name": "right wall",
+    		"description": "The right wall of the game",
+	        "actionCompMod": "pyplatformerengine.components.BlankActionComponent",
+	        "actionCompClass": "BlankActionComponent",
+	        "physicsCompMod": "pyplatformerengine.components.MotionlessPhysicsComponent",
+	        "physicsCompClass": "MotionlessPhysicsComponent",
+	        "animationCompMod": "pyplatformerengine.components.AnimationComponent",
+	        "animationCompClass": "AnimationComponent",
+	        "startPositionX": 1585,
+	        "startPositionY": 0,
+	        "spritesheetFill": "WHITE",
+	        "spriteSheetImages": [
+	        	{
+	        		"type": "PYGAME_SURFACE",
+	        		"label": "standing",
+	        		"file": "",
+	        		"x": 0,
+	        		"y": 0,
+	        		"width": 15,
+	        		"height": 715
+	        	}
+	        ],
+	        "animationProperties": {
+	        	"width": 15,
+	        	"height": 715
 	        },
 	        "terminalVelocity": 1,
 	        "jumpVelocity": 1,
