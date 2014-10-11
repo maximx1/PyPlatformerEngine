@@ -4,3 +4,5 @@ __pycache__/
 .project
 .pydevproject
 logs/
+build/
+dist/
