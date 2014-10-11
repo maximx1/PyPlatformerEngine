@@ -3,7 +3,7 @@
 from distutils.core import setup
 
 setup(name='pyplatformerengine',
-    version='1.2',
+    version='1.2.0.1',
     description='Python Platformer Engine',
     author='Justin Walrath',
     author_email='walrathjaw@gmail.com',
