@@ -2,6 +2,7 @@ import pygame
 
 from pyplatformerengine.utilities import Color
 from pyplatformerengine.entities.CharacterFactory import CharacterFactory
+from pyplatformerengine.utilities.ConsoleManager import ConsoleManager
 
 """
     Main game class that handles the loop.
@@ -14,22 +15,28 @@ class Game:
         Initializes the game setup.
     """
     def __init__(self):
-        self.screen = pygame.display.set_mode((800,600))
+        self.screenWidth = 800
+        self.screenHeight = 600
+        self.screen = pygame.display.set_mode((self.screenWidth, self.screenHeight))
         self.clock = pygame.time.Clock()
         
     """
         Begins the game.
     """
-    def start_game(self):
+    def start_game(self, objectFile):
         done = False
         pygame.init()
         
         allSpriteList = pygame.sprite.Group()
-        characterFactory = CharacterFactory("../../resources/demo/game_objects/gameObjects.json")
+        characterFactory = CharacterFactory(objectFile)
         allEntities = characterFactory.buildSpriteObjects()
+        consoleManager = ConsoleManager()
+        consoleManager.addToMasterEntityList(allEntities)
+        consoleManager.setInScopeEntities(allEntities) 
+        camera = characterFactory.buildCamera(self.screenWidth, self.screenHeight)
         
         actionComponent = None
-        for entity in allEntities:
+        for entity in consoleManager.getInScopeEntities():
             allSpriteList.add(entity)
             if entity._id == characterFactory.controllingEntityId:
                 actionComponent = entity.actionComponent
@@ -37,15 +44,17 @@ class Game:
         while not done:
             self.screen.fill(self.colors.BLACK)
             
-            for entity in allEntities:
+            for entity in consoleManager.getInScopeEntities():
                 entity.update()
+                if entity._id == characterFactory.controllingEntityId:
+                    camera.update(entity)
                 entity.draw()
+                self.screen.blit(entity.image, camera.apply(entity))
             
-            allSpriteList.draw(self.screen)
             pygame.display.flip()
             self.clock.tick(60)
             done = actionComponent.endGame
         pygame.quit()
         
         
-Game().start_game()
+Game().start_game("../../resources/demo/game_objects/gameObjects.json")

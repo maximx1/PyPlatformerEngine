@@ -1,5 +1,11 @@
 {
-	"scriptVersion": "v1.1",
+	"scriptVersion": "v1.2",
+	"level" : {
+		"name": "Level 1",
+		"description": "The first level of the demo.",
+		"width": 1600,
+		"height": 715
+	},
 	"gameObjects" : [
     	{
     		"_id": "1",
@@ -13,18 +19,25 @@
 	        "animationCompClass": "AnimationComponent",
 	        "startPositionX": 50,
 	        "startPositionY": 20,
-	        "spriteImgType": "SPRITE_NO_ANIMATION",
 	        "spritesheetFill": "WHITE",
-	        "spritesheetImg": "../../resources/demo/sprites/Basic Ball.png",
-	        "spritesheetImgSizeX": 100,
-	        "spritesheetImgSizeY": 100,
-	        "spritesheetXQty": "",
-	        "spritesheetYQty": "",
-	        "spritesheetX": 15,
-	        "spritesheetY": 15,
-	        "spritesheetGap": "",
+	        "spriteSheetImages": [
+	        	{
+	        		"type": "SPRITE_IMG",
+	        		"label": "standing",
+	        		"file": "../../resources/demo/sprites/Basic Ball.png",
+	        		"x": 0,
+	        		"y": 0,
+	        		"height": 100,
+	        		"width": 100
+	        	}
+	        ],
+	        "animationProperties": {
+	        	"width": 15,
+	        	"height": 15
+	        },
 	        "terminalVelocity": 8,
-	        "leftRightMaxVelocity": 3,
+	        "jumpVelocity": 16,
+	        "leftRightMaxVelocity": 6,
 	        "collisionEnabled": 1,
 	        "proximity": -1,
 	        "controllingEntity": 1
@@ -41,17 +54,24 @@
 	        "animationCompClass": "AnimationComponent",
 	        "startPositionX": 0,
 	        "startPositionY": 85,
-	        "spriteImgType": "PYGAME_SURFACE",
 	        "spritesheetFill": "WHITE",
-	        "spritesheetImg": "",
-	        "spritesheetImgSizeX": 400,
-	        "spritesheetImgSizeY": 15,
-	        "spritesheetXQty": "",
-	        "spritesheetYQty": "",
-	        "spritesheetX": 400,
-	        "spritesheetY": 15,
-	        "spritesheetGap": "",
+	        "spriteSheetImages": [
+	        	{
+	        		"type": "PYGAME_SURFACE",
+	        		"label": "standing",
+	        		"file": "",
+	        		"x": 0,
+	        		"y": 0,
+	        		"height": 400,
+	        		"width": 15
+	        	}
+	        ],
+	        "animationProperties": {
+	        	"width": 400,
+	        	"height": 15
+	        },
 	        "terminalVelocity": 1,
+	        "jumpVelocity": 1,
 	        "leftRightMaxVelocity": 3,
 	        "collisionEnabled": 1,
 	        "proximity": -1
@@ -68,17 +88,25 @@
 	        "animationCompClass": "AnimationComponent",
 	        "startPositionX": 400,
 	        "startPositionY": 140,
-	        "spriteImgType": "PYGAME_SURFACE",
 	        "spritesheetFill": "WHITE",
-	        "spritesheetImg": "",
-	        "spritesheetImgSizeX": 20,
-	        "spritesheetImgSizeY": 15,
-	        "spritesheetXQty": "",
-	        "spritesheetYQty": "",
-	        "spritesheetX": 20,
-	        "spritesheetY": 15,
-	        "spritesheetGap": "",
+	        
+	        "spriteSheetImages": [
+	        	{
+	        		"type": "PYGAME_SURFACE",
+	        		"label": "standing",
+	        		"file": "",
+	        		"x": 0,
+	        		"y": 0,
+	        		"height": 20,
+	        		"width": 15
+	        	}
+	        ],
+	        "animationProperties": {
+	        	"width": 20,
+	        	"height": 15
+	        },
 	        "terminalVelocity": 1,
+	        "jumpVelocity": 1,
 	        "leftRightMaxVelocity": 3,
 	        "collisionEnabled": 1,
 	        "proximity": -1
@@ -94,18 +122,25 @@
 	        "animationCompMod": "pyplatformerengine.components.AnimationComponent",
 	        "animationCompClass": "AnimationComponent",
 	        "startPositionX": 0,
-	        "startPositionY": 585,
-	        "spriteImgType": "PYGAME_SURFACE",
+	        "startPositionY": 700,
 	        "spritesheetFill": "WHITE",
-	        "spritesheetImg": "",
-	        "spritesheetImgSizeX": 400,
-	        "spritesheetImgSizeY": 15,
-	        "spritesheetXQty": "",
-	        "spritesheetYQty": "",
-	        "spritesheetX": 400,
-	        "spritesheetY": 15,
-	        "spritesheetGap": "",
+	        "spriteSheetImages": [
+	        	{
+	        		"type": "PYGAME_SURFACE",
+	        		"label": "standing",
+	        		"file": "",
+	        		"x": 0,
+	        		"y": 0,
+	        		"height": 1600,
+	        		"width": 15
+	        	}
+	        ],
+	        "animationProperties": {
+	        	"width": 1600,
+	        	"height": 15
+	        },
 	        "terminalVelocity": 1,
+	        "jumpVelocity": 1,
 	        "leftRightMaxVelocity": 3,
 	        "collisionEnabled": 1,
 	        "proximity": -1
