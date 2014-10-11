@@ -1,4 +1,5 @@
 from pyplatformerengine.utilities.ImageUtils import ImageUtils
+from pyplatformerengine.utilities.LoggerUtil import LoggerUtil
 
 """
     Default animation component for a platformer character.
@@ -33,3 +34,5 @@ class AnimationComponent:
         entity.rect = entity.image.get_rect()
         entity.rect.x = originalX
         entity.rect.y = originalY
+        loggerUtil = LoggerUtil()
+        loggerUtil.info("CharacterLocation: (" + str(entity.rect.x) + ", " + str(entity.rect.y) + ")")

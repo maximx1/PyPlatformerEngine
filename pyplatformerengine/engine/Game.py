@@ -3,6 +3,7 @@ import pygame
 from pyplatformerengine.utilities import Color
 from pyplatformerengine.entities.CharacterFactory import CharacterFactory
 from pyplatformerengine.utilities.ConsoleManager import ConsoleManager
+from pyplatformerengine.utilities.LoggerUtil import LoggerUtil
 
 """
     Main game class that handles the loop.
@@ -15,10 +16,19 @@ class Game:
         Initializes the game setup.
     """
     def __init__(self):
+        
+        settings = {}
+        settings["screenWidth"] = 800
+        settings["screenHeight"] = 600
+        settings["logFile"] = "../../logs/error_log.txt"
+        settings["enableLogging"] = False
+        
         self.screenWidth = 800
         self.screenHeight = 600
         self.screen = pygame.display.set_mode((self.screenWidth, self.screenHeight))
         self.clock = pygame.time.Clock()
+        loggerUtil = LoggerUtil()
+        loggerUtil.setLogger(settings)
         
     """
         Begins the game.
