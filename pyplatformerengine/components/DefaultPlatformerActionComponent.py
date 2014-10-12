@@ -5,8 +5,7 @@ import pygame
 """
 class DefaultPlatformerActionComponent:
     endGame = False
-        
-    """
+    """ 
         Runs the update to the logic component.
     """
     def determineAction(self, entity):
@@ -24,6 +23,13 @@ class DefaultPlatformerActionComponent:
                     entity.initiateJump = True
             elif event.type == pygame.KEYUP:
                 if event.key == pygame.K_LEFT:
-                    entity.deltaX = 0
+                    entity.deltaX = 0 
                 elif event.key == pygame.K_RIGHT:
-                    entity.deltaX = 0
+                    entity.deltaX = 0 
+    
+        keys_pressed = pygame.key.get_pressed()
+
+        if keys_pressed[pygame.K_LEFT]:
+            entity.deltaX = -1 * entity.maximumLeftRightVelocity
+        if keys_pressed[pygame.K_RIGHT]:
+            entity.deltaX = entity.maximumLeftRightVelocity
