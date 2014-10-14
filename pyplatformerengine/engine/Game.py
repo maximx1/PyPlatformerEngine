@@ -16,14 +16,14 @@ class Game:
         Initializes the game setup.
     """
     def __init__(self, settingsFile):
-        settings = Settings(settingsFile)
-        settings.settings["enableLogging"] = True if settings.settings["enableLogging"] == "True" else False
-        self.screenWidth = int(settings.settings["screenWidth"])
-        self.screenHeight = int(settings.settings["screenHeight"])
+        settings = Settings(settingsFile).settings
+        settings["enableLogging"] = True if settings["enableLogging"] == "True" else False
+        self.screenWidth = int(settings["screenWidth"])
+        self.screenHeight = int(settings["screenHeight"])
         self.screen = pygame.display.set_mode((self.screenWidth, self.screenHeight))
         self.clock = pygame.time.Clock()
         loggerUtil = LoggerUtil()
-        loggerUtil.setLogger(settings.settings)
+        loggerUtil.setLogger(settings)
     
     """ 
         Begins the game.

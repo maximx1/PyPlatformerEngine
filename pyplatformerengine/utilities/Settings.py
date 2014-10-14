@@ -17,10 +17,16 @@ class Settings:
             settingValue = settingValue.replace("'","")
             self.settings[settingName] = settingValue.rstrip('\n')
 
+    """
+        Modify settings.
+    """
     def changeSetting(self,settingName,change):
         if self.settings.get(settingName):
             self.settings[settingName] = change
     
+    """
+        fetch settings.
+    """
     def fetchSetting(self,settingName):
         if self.settings.get(settingName):
             return self.settings[settingName]
