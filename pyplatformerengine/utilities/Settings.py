@@ -1,5 +1,3 @@
-import pygame
-
 """
     Settings manager  
 """

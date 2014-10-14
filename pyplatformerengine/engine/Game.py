@@ -12,26 +12,18 @@ from pyplatformerengine.utilities.Settings import Settings
 class Game:
     
     colors = Color.Color()
-    settings = Settings("../../resources/demo/settings.conf")
     """ 
         Initializes the game setup.
     """
-    def __init__(self):
-        
-        settings = {}
-        self.screenWidth = int(self.settings.fetchSetting("screenWidth"))
-        self.screenHeight = int(self.settings.fetchSetting("screenHeight"))
-        settings["screenWidth"] = 800
-        settings["screenHeight"] = 600
-        settings["logFile"] = "../../logs/error_log.txt"
-        settings["enableLogging"] = False
-        
-        self.screenWidth = 800
-        self.screenHeight = 600
+    def __init__(self, settingsFile):
+        settings = Settings(settingsFile)
+        settings.settings["enableLogging"] = True if settings.settings["enableLogging"] == "True" else False
+        self.screenWidth = int(settings.settings["screenWidth"])
+        self.screenHeight = int(settings.settings["screenHeight"])
         self.screen = pygame.display.set_mode((self.screenWidth, self.screenHeight))
         self.clock = pygame.time.Clock()
         loggerUtil = LoggerUtil()
-        loggerUtil.setLogger(settings)
+        loggerUtil.setLogger(settings.settings)
     
     """ 
         Begins the game.
@@ -70,4 +62,4 @@ class Game:
         pygame.quit()
         
         
-Game().start_game("../../resources/demo/game_objects/gameObjects.json")
+Game("../../resources/demo/settings.conf").start_game("../../resources/demo/game_objects/gameObjects.json")
