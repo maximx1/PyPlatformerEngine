@@ -15,6 +15,3 @@ class TestSettings(unittest.TestCase):
         self.assertEqual("1280", self.settings.fetchSetting("screenWidth"), "screenWidth does not equal 1280")
         self.assertEqual("720", self.settings.fetchSetting("screenHeight"), "screenHeight does not equal 720")
         self.assertEqual("False", self.settings.fetchSetting("debug"), "debug does not equal False")
-
-if __name__ == '__main__':
-    unittest.main()
