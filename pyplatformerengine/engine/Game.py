@@ -67,4 +67,4 @@ class Game:
         pygame.quit()
         
         
-Game().start_game("../../resources/demo/game_objects/gameObjects.json")
+#Game().start_game("../../resources/demo/game_objects/gameObjects.json")
