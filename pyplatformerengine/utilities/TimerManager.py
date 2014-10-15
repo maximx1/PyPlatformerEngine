@@ -5,8 +5,17 @@ import random
 """
     Stop watch utlitity
 """
-timerSub = {}
 class TimerManager:
+    timerSub = {}
+    _instance  = None
+    
+    """
+        Turns new into a singleton retriever.
+    """
+    def __new__(cls, *args, **kwargs):
+        if not cls._instance:
+            cls._instance = super(TimerManager, cls).__new__(cls, *args, **kwargs)
+        return cls._instance
     
     """ 
         Initializes the object.
@@ -15,7 +24,8 @@ class TimerManager:
         self.startTime = 0 
         self.elapsedTime = 0 
         self.pauseTime = 0 
-        self.stopTime = 0 
+        self.stopTime = 0
+        
     """ 
         Starts the unique timer by storing current time since pygame.init() was called (milliseconds)
     """
@@ -28,7 +38,7 @@ class TimerManager:
         Update the timer structure using timerId
     """
     def updateTimer(self, timerId):
-        timerSub[timerId] = {'start' : self.startTime,'elapsed' : self.elapsedTime,
+        self.timerSub[timerId] = {'start' : self.startTime,'elapsed' : self.elapsedTime,
                              'pause' : self.pauseTime,'stop' : self.stopTime}
     
     """ 
@@ -64,12 +74,6 @@ class TimerManager:
         self.updateTimer(timerId)
 
     """
-        Returns the timer dictionary with all the timers and their structures. 
-    """
-    def timerList(self):
-        return timerSub
-
-    """
         Creates a unique id used for keeping track of timers. 
     """
     def idCreator(self, size):
@@ -79,7 +83,7 @@ class TimerManager:
         Reads the current timer. 
     """
     def readTimer(self, timerId):
-        if timerSub[timerId]['stop'] == 0:
-            return (pygame.time.get_ticks() - timerSub[timerId]['start']) - timerSub[timerId]['elapsed']
+        if self.timerSub[timerId]['stop'] == 0:
+            return (pygame.time.get_ticks() - self.timerSub[timerId]['start']) - self.timerSub[timerId]['elapsed']
         else:
-            return (timerSub[timerId]['stop'] - timerSub[timerId]['start']) - timerSub[timerId]['elapsed']
+            return (self.timerSub[timerId]['stop'] - self.timerSub[timerId]['start']) - self.timerSub[timerId]['elapsed']
