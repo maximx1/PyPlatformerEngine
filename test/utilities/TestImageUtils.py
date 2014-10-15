@@ -8,7 +8,7 @@ class TestImageUtils(unittest.TestCase):
         self.image = ImageUtils(self.testImage)
                 
     def testImageMethodsForManipulatingImages(self):
-        self.assertEqual(self.image.getImage(), self.image.getImage(), "Images are not the same")
+        self.assertEqual(self.testImage, self.image.getImage(), "Images are not the same")
         self.assertNotEqual(self.image.getImage(), self.image.scale(2,2).getImage(), "Images are the same (scale)")
         self.assertNotEqual(self.image.getImage(), self.image.rotate(20).getImage(), "Images are the same (rotate)")
         self.assertNotEqual(self.image.getImage(), self.image.flipVertical().getImage(), "Images are the same (flipVertical)")
