@@ -72,7 +72,7 @@ class CharacterFactory:
         startY = int(obj["startPositionY"])
         collisionDetectionComponent = BasicCollisionDetection()
         actionComponent = self.importClass(obj["actionCompMod"], obj["actionCompClass"])()
-        animationComponent = self.importClass(obj["animationCompMod"], obj["animationCompClass"])(obj["animationProperties"])
+        animationComponent = self.importClass(obj["animationCompMod"], obj["animationCompClass"])()
         physicsComponent = self.importClass(obj["physicsCompMod"], obj["physicsCompClass"])(obj["terminalVelocity"], collisionDetectionComponent)
         entity = Entity(actionComponent, animationComponent, physicsComponent, spriteStages, startX, startY)
         entity._id = obj["_id"]

@@ -1,4 +1,6 @@
 from pyplatformerengine.physics.Gravity import Gravity
+from pyplatformerengine.physics.CollisionDetectionFactory import CollisionDetectionFactory
+from pygame.rect import Rect
 
 """
     A basic physics component for moving a character around.
@@ -6,16 +8,20 @@ from pyplatformerengine.physics.Gravity import Gravity
 class PhysicsComponent:
     
     """
-        Initializes the object.
+        Sets up the object.
     """
-    def __init__(self, terminalVelocity, collisionDetectionComponent):
-        self.terminalVelocity = terminalVelocity
-        self.collisionDetectionComponent = collisionDetectionComponent
+    def setUp(self, actor, entity):
+        entity.rect = Rect(actor.stateDict["startPositionX"], actor.stateDict["startPositionY"], 1, 1)
+        actor.terminalVelocity = actor.stateDict["terminalVelocity"]
+        actor.jumpVelocity = actor.stateDict["jumpVelocity"]
+        if actor.stateDict["collisionEnabled"] != 0:
+            collisionDetectionFactory = CollisionDetectionFactory()
+            collisionDetectionFactory.addCollidable(actor)
     
     """
         Runs the update to the logic component.
     """
-    def update(self, entity):
+    def update(self, actor, entity):
         self.applyDownGravity(entity)
         self.applyJump(entity)
         _, collisionOnYDetected = self.updateLocation(entity)

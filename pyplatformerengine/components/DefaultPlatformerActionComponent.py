@@ -4,32 +4,24 @@ import pygame
     Default controller for the platformer action component.
 """
 class DefaultPlatformerActionComponent:
-    endGame = False
     """ 
         Runs the update to the logic component.
     """
-    def determineAction(self, entity):
+    def update(self, actor, entity):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                self.endGame = True
+                actor.endGame = True
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
-                    self.endGame = True
-                elif event.key == pygame.K_LEFT:
-                    entity.deltaX = -1 * entity.maximumLeftRightVelocity
-                elif event.key == pygame.K_RIGHT:
-                    entity.deltaX = entity.maximumLeftRightVelocity
+                    actor.endGame = True
                 elif event.key == pygame.K_SPACE:
                     entity.initiateJump = True
-            elif event.type == pygame.KEYUP:
-                if event.key == pygame.K_LEFT:
-                    entity.deltaX = 0 
-                elif event.key == pygame.K_RIGHT:
-                    entity.deltaX = 0 
     
         keys_pressed = pygame.key.get_pressed()
 
         if keys_pressed[pygame.K_LEFT]:
-            entity.deltaX = -1 * entity.maximumLeftRightVelocity
-        if keys_pressed[pygame.K_RIGHT]:
-            entity.deltaX = entity.maximumLeftRightVelocity
+            entity.deltaX = -1 * actor.stateDict.get("leftRightMaxVelocity", 1)
+        elif keys_pressed[pygame.K_RIGHT]:
+            entity.deltaX = actor.stateDict.get("leftRightMaxVelocity", 1)
+        else:
+            entity.deltaX = 0
