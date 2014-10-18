@@ -6,17 +6,52 @@
 		"width": 1600,
 		"height": 715
 	},
+	"components": [
+		{
+			"_id": "1",
+			"desc": "Basic keyboard input",
+	        "componentModule": "pyplatformerengine.components.DefaultPlatformerActionComponent",
+	        "componentClass": "DefaultPlatformerActionComponent"
+	    },
+	    {
+			"_id": "2",
+			"desc": "Basic plaformer character physics",
+	        "componentModule": "pyplatformerengine.components.PhysicsComponent",
+	        "componentClass": "PhysicsComponent"
+	    },
+	    {
+			"_id": "3",
+			"desc": "Basic controller input",
+	        "componentModule": "pyplatformerengine.components.AnimationComponent",
+	        "componentClass": "AnimationComponent"
+	    }
+	],
 	"gameObjects" : [
     	{
     		"_id": "1",
     		"name": "playableCharacter",
     		"description": "The main character of the game.",
-	        "actionCompMod": "pyplatformerengine.components.DefaultPlatformerActionComponent",
-	        "actionCompClass": "DefaultPlatformerActionComponent",
-	        "physicsCompMod": "pyplatformerengine.components.PhysicsComponent",
-	        "physicsCompClass": "PhysicsComponent",
-	        "animationCompMod": "pyplatformerengine.components.AnimationComponent",
-	        "animationCompClass": "AnimationComponent",
+    		"actors": {
+    			"updateActors": [
+  					{
+	    				"_id": "1",
+	    				"name": "action",
+	    				"components": [ "1" ]
+	    			},
+	    			{
+	    				"_id": "2",
+	    				"name": "physics",
+	    				"components": [ "2" ]
+	    			}
+	    		],
+	    		"drawActors": [
+	    			{
+	    				"_id": "1",
+	    				"name": "action",
+	    				"components": [ "3" ]
+	    			}
+	    		]
+		    },
 	        "startPositionX": 50,
 	        "startPositionY": 20,
 	        "spritesheetFill": "WHITE",
