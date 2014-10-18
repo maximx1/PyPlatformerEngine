@@ -1,3 +1,4 @@
 class ActorFactory:
-    def __init__(self):
-        print("TODO")
+    
+    def buildComponents(self, componentDefinitions):
+        

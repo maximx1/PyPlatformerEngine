@@ -1,10 +1,11 @@
-from pygame.rect import Rect
+from pyplatformerengine.physics.Gravity import Gravity
 from pyplatformerengine.physics.CollisionDetectionFactory import CollisionDetectionFactory
+from pygame.rect import Rect
 
 """
     A basic physics component for moving a character around.
 """
-class MotionlessPhysicsComponent:
+class LocationComponent:
     
     """
         Initializes the object.
@@ -21,16 +22,14 @@ class MotionlessPhysicsComponent:
         if actor.stateDict["collisionEnabled"] != 0:
             collisionDetectionFactory = CollisionDetectionFactory()
             collisionDetectionFactory.addCollidable(actor)
-    
+        
     """
-        Runs the update to the logic component.
+        Updates the logic location of the entity. Returns True for directional collision.
     """
     def update(self, actor, entity):
-        self.updateLocation(entity)
-    
-    """
-        Updates the logic location of the entity.
-    """
-    def updateLocation(self, entity):
         entity.rect.x += entity.deltaX
+        actor.collisionDetectionComponent.detectXCollisions(entity)
         entity.rect.y += entity.deltaY
+        collisionOnYDetected = actor.collisionDetectionComponent.detectYCollisions(entity)
+        if collisionOnYDetected:
+            entity.terminateJump = True

@@ -7,6 +7,13 @@ from pyplatformerengine.utilities.LoggerUtil import LoggerUtil
 class AnimationComponent:
     
     """
+        Initializes the object.
+    """
+    def __init__(self, _id, desc):
+        self._id = _id
+        self.desc = desc
+    
+    """
         Prepares the entity with its initial graphic.
     """
     def setUp(self, actor, entity):

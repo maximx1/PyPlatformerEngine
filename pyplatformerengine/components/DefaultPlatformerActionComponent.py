@@ -4,6 +4,14 @@ import pygame
     Default controller for the platformer action component.
 """
 class DefaultPlatformerActionComponent:
+
+    """
+        Initializes the object.
+    """
+    def __init__(self, _id, desc):
+        self._id = _id
+        self.desc = desc
+        
     """ 
         Runs the update to the logic component.
     """

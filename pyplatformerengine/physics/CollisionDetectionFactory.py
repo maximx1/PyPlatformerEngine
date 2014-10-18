@@ -5,7 +5,7 @@ from pyplatformerengine.physics.BasicCollisionDetection import BasicCollisionDet
 """
 class CollisionDetectionFactory:
     _instance  = None
-    registeredActors = []
+    registered = {}
 
     """
         Turns new into a singleton retriever.
@@ -18,13 +18,14 @@ class CollisionDetectionFactory:
     """
         Registers the new actor into the collision detection.
     """
-    def addCollidable(self, newActor):
-        self.registeredActors.add(newActor)
-        newActor.collisionDetectionComponent = BasicCollisionDetection()
+    def addCollidable(self, actor, entity):
+        self.registeredEntities[actor][entity]
+        actor.collisionDetectionComponent = BasicCollisionDetection()
         
     """
         Initializes the collision detection in the actors.
     """
     def activateCollisionDetection(self):
-        for actor in self.registeredActors:
-            actor.collisionDetectionComponent.registerEntities(actor, self.registeredActors)
+        allEntities = list(self.registered.values())
+        for actor, entity in self.registered:
+            actor.collisionDetectionComponent.registerEntities(entity, allEntities)
