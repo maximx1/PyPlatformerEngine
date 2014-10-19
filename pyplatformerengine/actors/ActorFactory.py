@@ -43,7 +43,6 @@ class ActorFactory:
                     
         actor =  BaseActor(_id, name, componentsToAdd, stateDict)
         if controllingEntity:
-            print(actor._id)
             ConsoleManager().controllingActor = actor
             
         return actor

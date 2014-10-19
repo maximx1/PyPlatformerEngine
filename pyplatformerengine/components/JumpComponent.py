@@ -22,8 +22,7 @@ class JumpComponent:
                 entity.deltaY = -1 * actor.jumpVelocity
                 entity.initiateJump = False
                 entity.readyToJump = False
-        else:
-            if entity.terminateJump:
+        elif entity.terminateJump:
                 entity.readyToJump = True
                 entity.deltaY = 0
                 entity.terminateJump = False

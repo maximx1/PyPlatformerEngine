@@ -31,5 +31,5 @@ class LocationComponent:
         actor.collisionDetectionComponent.detectXCollisions(entity)
         entity.rect.y += entity.deltaY
         collisionOnYDetected = actor.collisionDetectionComponent.detectYCollisions(entity)
-        if collisionOnYDetected:
+        if collisionOnYDetected and entity.initiateJump:
             entity.terminateJump = True
