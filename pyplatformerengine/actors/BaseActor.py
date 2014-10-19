@@ -6,10 +6,9 @@ class BaseActor:
     """
         Initializes the object with state variables.
     """
-    def __init__(self, _id, name, description, components, stateDict):
+    def __init__(self, _id, name, components, stateDict):
         self._id = _id
         self.name = name
-        self.description = description
         self.components = components
         self.stateDict = stateDict
         

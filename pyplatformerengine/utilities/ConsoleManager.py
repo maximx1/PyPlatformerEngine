@@ -5,6 +5,7 @@ class ConsoleManager:
     _instance  = None
     allEntities = {}
     inScopeEntities = {}
+    controllingActor = None
     
     """
         Turns new into a singleton retriever.

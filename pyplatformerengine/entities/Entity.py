@@ -14,13 +14,10 @@ class Entity(pygame.sprite.Sprite):
     """
         Initializes the Object.
     """
-    def __init__(self, actionComponent, animationComponent, physicsComponent, spriteStages, startX, startY):
+    def __init__(self, updateActors, drawActors):
         pygame.sprite.Sprite.__init__(self)
-        self.actionComponent = actionComponent
-        self.animationComponent = animationComponent
-        self.physicsComponent = physicsComponent
-        self.spriteStages = spriteStages
-        self.animationComponent.initializeCharacter(self, startX, startY)
+        self.updateActors = updateActors
+        self.drawActors = drawActors
     
     """
         Updates the Entity's logic
