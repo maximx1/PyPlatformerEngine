@@ -9,28 +9,37 @@ class Entity(pygame.sprite.Sprite):
     deltaY = 0
     direction = 1
     initiateJump = False
+    terminateJump = False
     readyToJump = False
     
     """
         Initializes the Object.
     """
-    def __init__(self, actionComponent, animationComponent, physicsComponent, spriteStages, startX, startY):
+    def __init__(self, _id, updateActors, drawActors):
         pygame.sprite.Sprite.__init__(self)
-        self.actionComponent = actionComponent
-        self.animationComponent = animationComponent
-        self.physicsComponent = physicsComponent
-        self.spriteStages = spriteStages
-        self.animationComponent.initializeCharacter(self, startX, startY)
+        self._id = _id
+        self.updateActors = updateActors
+        self.drawActors = drawActors
+        
+    """
+        Sets up all of the actors if their components need setup.
+    """
+    def activateActors(self):
+        for actor in self.updateActors:
+            actor.setUp(self)
+        for actor in self.drawActors:
+            actor.setUp(self)
     
     """
         Updates the Entity's logic
     """
     def update(self):
-        self.actionComponent.determineAction(self)
-        self.physicsComponent.update(self)
+        for actor in self.updateActors:
+            actor.act(self)
         
     """
         Calls the updates to the graphics
     """
     def draw(self):
-        self.animationComponent.draw(self)
+        for actor in self.drawActors:
+            actor.act(self)
