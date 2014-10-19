@@ -6,6 +6,7 @@ class ConsoleManager:
     allEntities = {}
     inScopeEntities = {}
     controllingActor = None
+    cameraFocusEntityId = None
     
     """
         Turns new into a singleton retriever.

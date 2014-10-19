@@ -20,7 +20,7 @@ class MotionlessPhysicsComponent:
         entity.rect = Rect(actor.stateDict["startPositionX"], actor.stateDict["startPositionY"], 1, 1)
         if actor.stateDict["collisionEnabled"] != 0:
             collisionDetectionFactory = CollisionDetectionFactory()
-            collisionDetectionFactory.addCollidable(actor)
+            collisionDetectionFactory.addCollidable(actor, entity)
     
     """
         Runs the update to the logic component.

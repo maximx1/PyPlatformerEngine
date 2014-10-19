@@ -16,8 +16,8 @@
 	    {
 			"_id": "2",
 			"desc": "Basic plaformer character physics",
-	        "componentModule": "pyplatformerengine.components.PhysicsComponent",
-	        "componentClass": "PhysicsComponent"
+	        "componentModule": "pyplatformerengine.components.LocationComponent",
+	        "componentClass": "LocationComponent"
 	    },
 	    {
 			"_id": "3",
@@ -58,7 +58,7 @@
     		"actors": {
     			"updateActors": [
   					{
-	    				"_id": "1",
+	    				"_id": "AAAA",
 	    				"name": "action",
 	    				"components": [ "1" ],
 	    				"controllingEntity": 1,
@@ -67,9 +67,9 @@
 						}
 	    			},
 	    			{
-	    				"_id": "2",
+	    				"_id": "AAAB",
 	    				"name": "physics",
-	    				"components": [ "2", "6", "7" ],
+	    				"components": [ "2", "7", "6" ],
 	    				"state": {
 	    					"startPositionX": 50,
 					        "startPositionY": 20,
@@ -82,7 +82,7 @@
 	    		],
 	    		"drawActors": [
 	    			{
-	    				"_id": "1",
+	    				"_id": "AAAC",
 	    				"name": "animation",
 	    				"components": [ "3" ],
 	    				"state": {
@@ -105,7 +105,8 @@
 	    				}
 	    			}
 	    		]
-		    }
+		    },
+			"cameraFocus": 1
 	    },
 	    {
     		"_id": "2",
@@ -114,13 +115,12 @@
 			"actors": {
     			"updateActors": [
   					{
-	    				"_id": "1",
+	    				"_id": "AAAD",
 	    				"name": "action",
-	    				"components": [ "4" ],
-	    				"controllingEntity": 1
+	    				"components": [ "4" ]
 	    			},
 	    			{
-	    				"_id": "2",
+	    				"_id": "AAAE",
 	    				"name": "physics",
 	    				"components": [ "5" ],
 	    				"state": {
@@ -136,7 +136,7 @@
 	    		],
 	    		"drawActors": [
 	    			{
-	    				"_id": "1",
+	    				"_id": "AAAF",
 	    				"name": "animation",
 	    				"components": [ "3" ],
 	    				"state": {
@@ -165,138 +165,213 @@
     		"_id": "3",
     		"name": "platform 2",
     		"description": "The Second platform of the demo.",
-	        "actionCompMod": "pyplatformerengine.components.BlankActionComponent",
-	        "actionCompClass": "BlankActionComponent",
-	        "physicsCompMod": "pyplatformerengine.components.MotionlessPhysicsComponent",
-	        "physicsCompClass": "MotionlessPhysicsComponent",
-	        "animationCompMod": "pyplatformerengine.components.AnimationComponent",
-	        "animationCompClass": "AnimationComponent",
-	        "startPositionX": 400,
-	        "startPositionY": 140,
-	        "spritesheetFill": "WHITE",
-	        
-	        "spriteSheetImages": [
-	        	{
-	        		"type": "PYGAME_SURFACE",
-	        		"label": "standing",
-	        		"file": "",
-	        		"x": 0,
-	        		"y": 0,
-	        		"width": 44,
-	        		"height": 15
-	        	}
-	        ],
-	        "animationProperties": {
-	        	"width": 44,
-	        	"height": 15
-	        },
-	        "terminalVelocity": 1,
-	        "jumpVelocity": 1,
-	        "leftRightMaxVelocity": 3,
-	        "collisionEnabled": 1,
-	        "proximity": -1
+			"actors": {
+    			"updateActors": [
+  					{
+	    				"_id": "AAAG",
+	    				"name": "action",
+	    				"components": [ "4" ]
+	    			},
+	    			{
+	    				"_id": "AAAH",
+	    				"name": "physics",
+	    				"components": [ "5" ],
+	    				"state": {
+							"startPositionX": 400,
+					        "startPositionY": 140,
+					        "terminalVelocity": 1,
+					        "jumpVelocity": 1,
+					        "leftRightMaxVelocity": 3,
+					        "collisionEnabled": 1,
+					        "proximity": -1
+					   	}
+	    			}
+	    		],
+	    		"drawActors": [
+	    			{
+	    				"_id": "AAAI",
+	    				"name": "animation",
+	    				"components": [ "3" ],
+	    				"state": {
+					        "spritesheetFill": "WHITE",
+					        "spriteSheetImages": [
+					        	{
+									"type": "PYGAME_SURFACE",
+									"label": "standing",
+									"file": "",
+									"x": 0,
+									"y": 0,
+									"width": 44,
+									"height": 15
+								}
+					        ],
+					        "animationProperties": {
+					        	"width": 44,
+					        	"height": 15
+					        }
+	    				}
+	    			}
+	    		]
+		    }
 	    },
 	    {
     		"_id": "4",
     		"name": "platform 3",
     		"description": "The third platform of the demo.",
-	        "actionCompMod": "pyplatformerengine.components.BlankActionComponent",
-	        "actionCompClass": "BlankActionComponent",
-	        "physicsCompMod": "pyplatformerengine.components.MotionlessPhysicsComponent",
-	        "physicsCompClass": "MotionlessPhysicsComponent",
-	        "animationCompMod": "pyplatformerengine.components.AnimationComponent",
-	        "animationCompClass": "AnimationComponent",
-	        "startPositionX": 15,
-	        "startPositionY": 700,
-	        "spritesheetFill": "WHITE",
-	        "spriteSheetImages": [
-	        	{
-	        		"type": "PYGAME_SURFACE",
-	        		"label": "standing",
-	        		"file": "",
-	        		"x": 0,
-	        		"y": 0,
-	        		"width": 1570,
-	        		"height": 15
-	        	}
-	        ],
-	        "animationProperties": {
-	        	"width": 1570,
-	        	"height": 15
-	        },
-	        "terminalVelocity": 1,
-	        "jumpVelocity": 1,
-	        "leftRightMaxVelocity": 3,
-	        "collisionEnabled": 1,
-	        "proximity": -1
+			"actors": {
+    			"updateActors": [
+  					{
+	    				"_id": "AAAJ",
+	    				"name": "action",
+	    				"components": [ "4" ]
+	    			},
+	    			{
+	    				"_id": "AAAK",
+	    				"name": "physics",
+	    				"components": [ "5" ],
+	    				"state": {
+							"startPositionX": 15,
+					        "startPositionY": 700,
+					        "terminalVelocity": 1,
+					        "jumpVelocity": 1,
+					        "leftRightMaxVelocity": 3,
+					        "collisionEnabled": 1,
+					        "proximity": -1
+					   	}
+	    			}
+	    		],
+	    		"drawActors": [
+	    			{
+	    				"_id": "AAAL",
+	    				"name": "animation",
+	    				"components": [ "3" ],
+	    				"state": {
+					        "spritesheetFill": "WHITE",
+					        "spriteSheetImages": [
+					        	{
+									"type": "PYGAME_SURFACE",
+									"label": "standing",
+									"file": "",
+									"x": 0,
+									"y": 0,
+									"width": 1570,
+									"height": 15
+								}
+					        ],
+					        "animationProperties": {
+					        	"width": 1570,
+					        	"height": 15
+					        }
+	    				}
+	    			}
+	    		]
+		    }
 	    },
 	    {
     		"_id": "5",
     		"name": "left wall",
     		"description": "The left wall of the game",
-	        "actionCompMod": "pyplatformerengine.components.BlankActionComponent",
-	        "actionCompClass": "BlankActionComponent",
-	        "physicsCompMod": "pyplatformerengine.components.MotionlessPhysicsComponent",
-	        "physicsCompClass": "MotionlessPhysicsComponent",
-	        "animationCompMod": "pyplatformerengine.components.AnimationComponent",
-	        "animationCompClass": "AnimationComponent",
-	        "startPositionX": 0,
-	        "startPositionY": 0,
-	        "spritesheetFill": "WHITE",
-	        "spriteSheetImages": [
-	        	{
-	        		"type": "PYGAME_SURFACE",
-	        		"label": "standing",
-	        		"file": "",
-	        		"x": 0,
-	        		"y": 0,
-	        		"width": 15,
-	        		"height": 715
-	        	}
-	        ],
-	        "animationProperties": {
-	        	"width": 15,
-	        	"height": 715
-	        },
-	        "terminalVelocity": 1,
-	        "jumpVelocity": 1,
-	        "leftRightMaxVelocity": 3,
-	        "collisionEnabled": 1,
-	        "proximity": -1
+			"actors": {
+    			"updateActors": [
+  					{
+	    				"_id": "AAAM",
+	    				"name": "action",
+	    				"components": [ "4" ]
+	    			},
+	    			{
+	    				"_id": "AAAN",
+	    				"name": "physics",
+	    				"components": [ "5" ],
+	    				"state": {
+							"startPositionX": 0,
+					        "startPositionY": 0,
+					        "terminalVelocity": 1,
+					        "jumpVelocity": 1,
+					        "leftRightMaxVelocity": 3,
+					        "collisionEnabled": 1,
+					        "proximity": -1
+					   	}
+	    			}
+	    		],
+	    		"drawActors": [
+	    			{
+	    				"_id": "AAAO",
+	    				"name": "animation",
+	    				"components": [ "3" ],
+	    				"state": {
+					        "spritesheetFill": "WHITE",
+					        "spriteSheetImages": [
+					        	{
+									"type": "PYGAME_SURFACE",
+									"label": "standing",
+									"file": "",
+									"x": 0,
+									"y": 0,
+									"width": 15,
+									"height": 715
+								}
+					        ],
+					        "animationProperties": {
+					        	"width": 15,
+					        	"height": 715
+					        }
+	    				}
+	    			}
+	    		]
+		    }
 	    },
 	    {
     		"_id": "6",
     		"name": "right wall",
     		"description": "The right wall of the game",
-	        "actionCompMod": "pyplatformerengine.components.BlankActionComponent",
-	        "actionCompClass": "BlankActionComponent",
-	        "physicsCompMod": "pyplatformerengine.components.MotionlessPhysicsComponent",
-	        "physicsCompClass": "MotionlessPhysicsComponent",
-	        "animationCompMod": "pyplatformerengine.components.AnimationComponent",
-	        "animationCompClass": "AnimationComponent",
-	        "startPositionX": 1585,
-	        "startPositionY": 0,
-	        "spritesheetFill": "WHITE",
-	        "spriteSheetImages": [
-	        	{
-	        		"type": "PYGAME_SURFACE",
-	        		"label": "standing",
-	        		"file": "",
-	        		"x": 0,
-	        		"y": 0,
-	        		"width": 15,
-	        		"height": 715
-	        	}
-	        ],
-	        "animationProperties": {
-	        	"width": 15,
-	        	"height": 715
-	        },
-	        "terminalVelocity": 1,
-	        "jumpVelocity": 1,
-	        "leftRightMaxVelocity": 3,
-	        "collisionEnabled": 1,
-	        "proximity": -1
+			"actors": {
+    			"updateActors": [
+  					{
+	    				"_id": "AAAP",
+	    				"name": "action",
+	    				"components": [ "4" ]
+	    			},
+	    			{
+	    				"_id": "AAAQ",
+	    				"name": "physics",
+	    				"components": [ "5" ],
+	    				"state": {
+							"startPositionX": 1585,
+					        "startPositionY": 0,
+					        "terminalVelocity": 1,
+					        "jumpVelocity": 1,
+					        "leftRightMaxVelocity": 3,
+					        "collisionEnabled": 1,
+					        "proximity": -1
+					   	}
+	    			}
+	    		],
+	    		"drawActors": [
+	    			{
+	    				"_id": "AAAR",
+	    				"name": "animation",
+	    				"components": [ "3" ],
+	    				"state": {
+					        "spritesheetFill": "WHITE",
+					        "spriteSheetImages": [
+					        	{
+									"type": "PYGAME_SURFACE",
+									"label": "standing",
+									"file": "",
+									"x": 0,
+									"y": 0,
+									"width": 15,
+									"height": 715
+								}
+					        ],
+					        "animationProperties": {
+					        	"width": 15,
+					        	"height": 715
+					        }
+	    				}
+	    			}
+	    		]
+		    }
 	    }
 	]
 }

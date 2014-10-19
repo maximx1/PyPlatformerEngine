@@ -19,7 +19,7 @@ class CollisionDetectionFactory:
         Registers the new actor into the collision detection.
     """
     def addCollidable(self, actor, entity):
-        self.registeredEntities[actor][entity]
+        self.registered[actor] = entity
         actor.collisionDetectionComponent = BasicCollisionDetection()
         
     """

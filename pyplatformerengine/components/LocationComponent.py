@@ -21,7 +21,7 @@ class LocationComponent:
         entity.rect = Rect(actor.stateDict["startPositionX"], actor.stateDict["startPositionY"], 1, 1)
         if actor.stateDict["collisionEnabled"] != 0:
             collisionDetectionFactory = CollisionDetectionFactory()
-            collisionDetectionFactory.addCollidable(actor)
+            collisionDetectionFactory.addCollidable(actor, entity)
         
     """
         Updates the logic location of the entity. Returns True for directional collision.

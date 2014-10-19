@@ -3,6 +3,7 @@ from pyplatformerengine.utilities.CameraMan import CameraMan
 from pyplatformerengine.entities.Camera import Camera
 from pyplatformerengine.actors.ActorFactory import ActorFactory
 import json
+from pyplatformerengine.utilities.ConsoleManager import ConsoleManager
 
 """
     Entity builder compatible with "v1" of JSON "scriptVersion"
@@ -44,6 +45,8 @@ class CharacterFactory:
         for obj in self.objectData["gameObjects"]:
             newGameEntity = self.createGameObject(obj, components, actorFactory)
             gameEntities.append(newGameEntity)
+            if obj.get("cameraFocus", 0) == 1:
+                ConsoleManager().cameraFocusEntityId = newGameEntity._id
             
         return gameEntities
     
@@ -52,4 +55,6 @@ class CharacterFactory:
     """
     def createGameObject(self, obj, components, actorFactory):
         updateActors, drawActors = actorFactory.buildActors(obj["actors"], components)
-        return Entity(updateActors, drawActors)
+        entity = Entity(obj["_id"], updateActors, drawActors)
+        entity.activateActors()
+        return entity

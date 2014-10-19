@@ -31,7 +31,7 @@ class ActorFactory:
     def buildActor(self, actorDefinition, availableComponents):
         _id = actorDefinition["_id"]
         name = actorDefinition["name"]
-        controllingEntity = False if actorDefinition.get("controllingEntity", 0) == 0 else True
+        controllingEntity = True if actorDefinition.get("controllingEntity", 0) == 1 else False
         stateDict = actorDefinition.get("state", None)
         
         #Add components
@@ -43,4 +43,7 @@ class ActorFactory:
                     
         actor =  BaseActor(_id, name, componentsToAdd, stateDict)
         if controllingEntity:
+            print(actor._id)
             ConsoleManager().controllingActor = actor
+            
+        return actor

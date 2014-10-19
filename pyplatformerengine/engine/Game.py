@@ -34,31 +34,29 @@ class Game:
         
         allSpriteList = pygame.sprite.Group()
         characterFactory = CharacterFactory(objectFile)
-        allEntities = characterFactory.buildSpriteObjects()
+        allEntities = characterFactory.createGameObjects()
         consoleManager = ConsoleManager()
         consoleManager.addToMasterEntityList(allEntities)
         consoleManager.setInScopeEntities(allEntities) 
         camera = characterFactory.buildCamera(self.screenWidth, self.screenHeight)
         
-        actionComponent = None
+        controllingActor = consoleManager.controllingActor
         for entity in consoleManager.getInScopeEntities():
             allSpriteList.add(entity)
-            if entity._id == characterFactory.controllingEntityId:
-                actionComponent = entity.actionComponent
         
         while not done:
             self.screen.fill(self.colors.BLACK)
             
             for entity in consoleManager.getInScopeEntities():
                 entity.update()
-                if entity._id == characterFactory.controllingEntityId:
+                if entity._id == consoleManager.cameraFocusEntityId:
                     camera.update(entity)
                 entity.draw()
                 self.screen.blit(entity.image, camera.apply(entity))
             
             pygame.display.flip()
             self.clock.tick(60)
-            done = actionComponent.endGame
+            done = controllingActor.endGame
         pygame.quit()
         
         

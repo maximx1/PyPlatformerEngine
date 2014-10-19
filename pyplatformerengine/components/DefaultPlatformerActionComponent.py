@@ -12,6 +12,9 @@ class DefaultPlatformerActionComponent:
         self._id = _id
         self.desc = desc
         
+    def setUp(self, actor, entity):
+        actor.endGame = False
+        
     """ 
         Runs the update to the logic component.
     """

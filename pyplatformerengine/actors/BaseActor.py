@@ -26,3 +26,15 @@ class BaseActor:
     def act(self, entity):
         for component in self.components:
             component.update(self, entity)
+            
+    """
+        Hashing function for using as key
+    """
+    def __hash__(self):
+        return hash((self._id, self.name))
+
+    """
+        Equality Checker.
+    """
+    def __eq__(self, other):
+        return (self._id, self.name) == (other._id, other.name)

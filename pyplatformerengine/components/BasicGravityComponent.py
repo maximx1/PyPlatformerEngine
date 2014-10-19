@@ -17,7 +17,7 @@ class BasicGravityComponent:
         Applies gravity on an entity for 2d platformer world.
     """
     def update(self, actor, entity):
-        if entity.deltaY < self.terminalVelocity:
+        if entity.deltaY < actor.terminalVelocity:
             entity.deltaY += 1
-        elif entity.deltaY > self.terminalVelocity:
-            entity.deltaY = self.terminalVelocity
+        elif entity.deltaY > actor.terminalVelocity:
+            entity.deltaY = actor.terminalVelocity

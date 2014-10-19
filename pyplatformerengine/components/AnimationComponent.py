@@ -30,7 +30,7 @@ class AnimationComponent:
     def update(self, actor, entity):
         image = actor.spriteStages["standing"]
         imageUtils = ImageUtils(image)
-        entity.image = imageUtils.scale(self.props["width"], self.props["height"]).getImage()
+        entity.image = imageUtils.scale(actor.stateDict["animationProperties"]["width"], actor.stateDict["animationProperties"]["height"]).getImage()
         self.updateRect(entity)
         loggerUtil = LoggerUtil()
         loggerUtil.info("CharacterLocation: (" + str(entity.rect.x) + ", " + str(entity.rect.y) + ")")
