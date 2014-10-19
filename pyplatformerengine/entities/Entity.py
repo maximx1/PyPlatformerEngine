@@ -23,11 +23,12 @@ class Entity(pygame.sprite.Sprite):
         Updates the Entity's logic
     """
     def update(self):
-        self.actionComponent.determineAction(self)
-        self.physicsComponent.update(self)
+        for actor in self.updateActors:
+            actor.act()
         
     """
         Calls the updates to the graphics
     """
     def draw(self):
-        self.animationComponent.draw(self)
+        for actor in self.drawActors:
+            actor.act()

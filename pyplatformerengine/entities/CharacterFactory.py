@@ -1,10 +1,7 @@
 from pyplatformerengine.entities.Entity import Entity
-from pyplatformerengine.physics.BasicCollisionDetection import BasicCollisionDetection
 from pyplatformerengine.utilities.CameraMan import CameraMan
 from pyplatformerengine.entities.Camera import Camera
-from pyplatformerengine.entities.SpritesheetFactory import SpritesheetFactory
 from pyplatformerengine.actors.ActorFactory import ActorFactory
-import pygame
 import json
 
 """
