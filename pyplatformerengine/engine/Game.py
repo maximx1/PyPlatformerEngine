@@ -5,6 +5,7 @@ from pyplatformerengine.entities.CharacterFactory import CharacterFactory
 from pyplatformerengine.utilities.ConsoleManager import ConsoleManager
 from pyplatformerengine.utilities.LoggerUtil import LoggerUtil
 from pyplatformerengine.utilities.Settings import Settings
+from pyplatformerengine.physics.CollisionDetectionFactory import CollisionDetectionFactory
 
 """
     Main game class that handles the loop.
@@ -43,6 +44,8 @@ class Game:
         controllingActor = consoleManager.controllingActor
         for entity in consoleManager.getInScopeEntities():
             allSpriteList.add(entity)
+            
+        CollisionDetectionFactory().activateCollisionDetection()
         
         while not done:
             self.screen.fill(self.colors.BLACK)

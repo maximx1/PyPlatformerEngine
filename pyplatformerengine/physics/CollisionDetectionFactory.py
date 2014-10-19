@@ -27,5 +27,5 @@ class CollisionDetectionFactory:
     """
     def activateCollisionDetection(self):
         allEntities = list(self.registered.values())
-        for actor, entity in self.registered:
-            actor.collisionDetectionComponent.registerEntities(entity, allEntities)
+        for actor in list(self.registered.keys()):
+            actor.collisionDetectionComponent.registerEntities(self.registered[actor], allEntities)
