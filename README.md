@@ -16,6 +16,13 @@ To install run
 
 
 #### What's new?
+* v1.3.0.0
+	* update: Improved component pattern with actors
+	* new: Game Timer Utility
+	* new: MIT License
+	* new: Settings file enabled.
+	* new: Logging utility
+
 * v1.2.0.1
 	* fixes known issue with the width and height of objects.
 	
