@@ -50,7 +50,7 @@ class Game:
         while not done:
             self.screen.fill(self.colors.BLACK)
             
-            for entity in consoleManager.getInScopeEntities():
+            for entity in sorted(consoleManager.getInScopeEntities(), key=lambda x: x._id):
                 entity.update()
                 if entity._id == consoleManager.cameraFocusEntityId:
                     camera.update(entity)
